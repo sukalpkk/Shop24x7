@@ -44,8 +44,16 @@
  </div>
     
 <div id="body">
+
+<div>
+  <h4 class="float-left"><span class="label label-default">Manage products</span></h4>&nbsp;
+
+<div class="float-left">  
+    <button type="button" class="btn btn-primary products-button" [routerLink]="['/admin/add-new-product']">Add New Products</button>
+</div>
+</div>
  
-<h4>Manage Products</h4>
+
 <br>
   <table class="table">
     
@@ -56,8 +64,8 @@
         <td>Smart Phone</td>
        
         <td>
-            <button>Edit</button>&nbsp;
-            <button>Delete</button>
+            <button class="btn btn-info">Edit</button>&nbsp;
+            <button class="btn btn-danger mx-3">Delete</button>
         </td>
       </tr>
       
@@ -66,18 +74,18 @@
         <td>Larry</td>
         
         <td>
-            <button>Edit</button>&nbsp;
-            <button>Delete</button>
-        </td>
+          <button class="btn btn-primary">Edit</button>&nbsp;
+          <button class="btn btn-primary products-button">Delete</button>
+      </td>
       </tr>
       <tr>
        
         <td>Larry</td>
         
         <td>
-            <button>Edit</button>&nbsp;
-            <button>Delete</button>
-        </td>
+          <button class="btn btn-primary">Edit</button>&nbsp;
+          <button class="btn btn-primary products-button">Delete</button>
+      </td>
       </tr>
     </tbody>
   </table>

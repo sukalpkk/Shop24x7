@@ -1,7 +1,6 @@
 import { Directive, Input } from '@angular/core';
 import { FormGroup, NG_VALIDATORS } from '@angular/forms';
 import { MustMatch } from './must-match.validator';
-import { Price } from './product-price.validator';
 
 @Directive({
   selector: '[appProductPrice]',
