@@ -9,6 +9,7 @@ import { AdminEditUserComponent } from './components/admin-edit-user/admin-edit-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { AdminManageOrdersComponent } from './components/admin-manage-orders/admin-manage-orders.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     AdminEditUserComponent,
     UserProfileComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    AdminManageOrdersComponent
   ],
   imports: [
     BrowserModule,
