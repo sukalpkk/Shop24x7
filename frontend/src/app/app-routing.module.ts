@@ -11,12 +11,15 @@ import { AdminAddNewProductComponent } from './components/admin-add-new-product/
 import { AdminAddUserComponent } from './components/admin-add-user/admin-add-user.component';
 import { AdminManageProductComponent } from './components/admin-manage-product/admin-manage-product.component';
 import { AdminEditUserComponent } from './components/admin-edit-user/admin-edit-user.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 const routes: Routes = [
   {path:"",redirectTo:"register",pathMatch:'full'},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
   {path:"profile", component: UserProfileComponent},
+  {path:"product-details",component:ProductDetailsComponent},
+  {path:"search/:searchTerm",component:ProductDetailsComponent},
   {path:"cart", component: CartComponent},
   {path:"checkout", component: CheckoutComponent},
   {path:"admin/orders", component: AdminManageOrdersComponent},
