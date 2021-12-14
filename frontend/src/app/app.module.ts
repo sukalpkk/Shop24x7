@@ -7,6 +7,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { AdminAddUserComponent } from './components/admin-add-user/admin-add-user.component';
 import { AdminEditUserComponent } from './components/admin-edit-user/admin-edit-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CartComponent } from './components/cart/cart.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     AdminAddUserComponent,
     AdminEditUserComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
