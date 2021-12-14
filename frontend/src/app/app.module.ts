@@ -12,6 +12,13 @@ import { AdminManageProductComponent } from './components/admin-manage-product/a
 import { AdminManageOrderComponent } from './components/admin-manage-order/admin-manage-order.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductPriceDirective } from './directives/product-price.directive';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ErrorComponent } from './components/error/error.component';
+import { MustMatchDirective } from './shared/must-match.directive';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -25,14 +32,20 @@ import { ProductPriceDirective } from './directives/product-price.directive';
     AdminManageProductComponent,
     AdminManageOrderComponent,
     ProductPriceDirective,
-    UserProfileComponent
+    UserProfileComponent,
+    LoginComponent,
+    RegisterComponent,
+    ErrorComponent,
+    MustMatchDirective
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
