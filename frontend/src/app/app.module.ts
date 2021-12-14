@@ -3,20 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AdminAddUserComponent } from './components/admin-add-user/admin-add-user.component';
 import { AdminEditUserComponent } from './components/admin-edit-user/admin-edit-user.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminAddUserComponent,
-    AdminEditUserComponent
+    AdminEditUserComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+     FormsModule,
     ReactiveFormsModule
   ],
   providers: [],
