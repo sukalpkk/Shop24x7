@@ -1,0 +1,70 @@
+
+.container{
+    background: white;
+	color: black;
+	justify-content: right;
+	font-family: 'Montserrat', sans-serif;
+	height: 350px;
+    border-radius: 1.2rem;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25), 0 5px 10px
+		rgba(0, 0, 0, 0.25);
+	position: relative;
+	width: 30rem;
+	font-size: 15;
+	margin-top:6.5rem;
+}
+.checkout1{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: right;
+
+    flex:1 3;
+    height:20rem;
+    padding:.5rem;
+    margin:.5rem;
+}
+.checkout1>div{
+    font-size:1.4rem;
+    margin:1rem;
+    flex:4;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: flex-start;
+    padding:1rem;
+}
+body {
+	background-color: lightsteelblue;
+	text-decoration: none;
+	justify-content: right;
+	height:100%;
+	font-size:15;
+    margin: 0px;
+    padding: 0px;
+}
+form {
+	width: 450px;
+	height: 100;
+	font-size:15;
+	justify-content: right;
+	padding: 2rem;
+}
+.button{
+	width:200%; 
+    
+}
+
+.col-lg{
+	color: black;
+	justify-content: left;
+	position: relative;
+	width: 30rem;
+	font-size: 15;
+    margin-top:10rem;
+    padding:10px;
+}
+
+
+
+
