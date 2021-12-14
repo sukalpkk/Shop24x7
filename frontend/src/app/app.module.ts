@@ -12,7 +12,7 @@ import { AdminManageProductComponent } from './components/admin-manage-product/a
 import { AdminManageOrderComponent } from './components/admin-manage-order/admin-manage-order.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductPriceDirective } from './directives/product-price.directive';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 
