@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminAddNewProductComponent } from './components/admin-add-new-product/admin-add-new-product.component';
+import { AdminAddUserComponent } from './components/admin-add-user/admin-add-user.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path:'admin/addUser', component: AdminAddUserComponent},
+  {path:'admin/add-new-product', component:AdminAddNewProductComponent},
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
