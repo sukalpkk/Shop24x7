@@ -1,0 +1,95 @@
+<section class="container">
+    <div class="left">
+        <img class="profile-imgage" src='{{profileImg}}' alt="...">
+        <div class="buttons">
+            <button class="btn btn-warning" (click)="deleteImage()">Delete Image</button>
+            <button class="btn btn-primary" (click)="uploadImage()">Upload</button>
+        </div>
+
+    </div>
+    <div class="right">
+        <div class="dataTable">
+            <span class="row">
+                <span class="data" name="profile-first-name">
+                    Fisrtname
+                    <div>{{userProfile.firstname}}</div>
+                </span>
+
+                <span class="data" name="profile-last-name">
+                    Lastname
+                    <div>{{userProfile.lastname}}</div>
+                </span>
+            </span>
+
+            <span class="data" name="profile-email">
+                Email
+                <div>{{userProfile.email}}</div>
+            </span>
+
+            <span class="data" name="profile-phone">
+                Phone
+                <div>{{userProfile.phone}}</div>
+            </span>
+
+            <span class="data" name="profile-interests">
+                Interests
+                <div>{{userProfile.interests}}</div>
+            </span>
+
+            <span class="row">
+                <span class="data" name="profile-address">
+                    Address
+                    <div>{{userProfile.address}}</div>
+                </span>
+
+                <button class="btn btn-primary" (click)="onEditAddress()" *ngIf="!isUserAddressEditable">Edit</button>
+
+            </span>
+        </div>
+
+        <form *ngIf="isUserAddressEditable" [formGroup]="userAddressForm" (ngSubmit)="onSubmitAddress()">
+            <div class="form-group">
+                <label for="inputStreetAddress">Street Address</label>
+                <input formControlName="streetAddress" type="text" class="form-control" id="inputStreetAddress"
+                    placeholder="Street Address"
+                    [ngClass]="{ 'is-invalid': isUserAddressFormSubmitted && userAddressFormControls.streetAddress.errors}" />
+                <div *ngIf="isUserAddressFormSubmitted && userAddressFormControls.streetAddress.errors"
+                    class="invalid-feedback">
+                    <div *ngIf="userAddressFormControls.streetAddress.errors.required">Street Address is required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputCity">City</label>
+                <input formControlName="city" type="text" class="form-control" id="inputCity" placeholder="City"
+                    [ngClass]="{ 'is-invalid': isUserAddressFormSubmitted && userAddressFormControls.city.errors}" />
+                <div *ngIf="isUserAddressFormSubmitted && userAddressFormControls.city.errors" class="invalid-feedback">
+                    <div *ngIf="userAddressFormControls.city.errors.required">City is required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputState">State</label>
+                <input formControlName="state" type="text" class="form-control" id="inputState" placeholder="State"
+                    [ngClass]="{ 'is-invalid': isUserAddressFormSubmitted && userAddressFormControls.state.errors}" />
+                <div *ngIf="isUserAddressFormSubmitted && userAddressFormControls.state.errors"
+                    class="invalid-feedback">
+                    <div *ngIf="userAddressFormControls.state.errors.required">State is required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputZip">Zip Code</label>
+                <input formControlName="zipCode" type="text" class="form-control" id="inputZipCode"
+                    placeholder="Zip Code"
+                    [ngClass]="{ 'is-invalid': isUserAddressFormSubmitted && userAddressFormControls.zipCode.errors}" />
+                <div *ngIf="isUserAddressFormSubmitted && userAddressFormControls.zipCode.errors"
+                    class="invalid-feedback">
+                    <div *ngIf="userAddressFormControls.zipCode.errors.required">Zip Code is required</div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</section>
