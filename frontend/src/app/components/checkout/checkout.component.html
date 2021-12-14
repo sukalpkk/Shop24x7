@@ -1,0 +1,84 @@
+<section class="container">
+    <form [formGroup]="checkoutForm" (ngSubmit)="onPlaceOrder()">
+        <h3>User Info</h3>
+        <div class="form-group">
+            <label for="inputFirstname">Firstname</label>
+            <input formControlName="firstname" type="text" class="form-control" id="inputFirstname"
+                placeholder="Firstname"
+                [ngClass]="{ 'is-invalid': isCheckoutFormSubmitted && checkoutFormControls.firstname.errors}" />
+            <div *ngIf="isCheckoutFormSubmitted && checkoutFormControls.firstname.errors" class="invalid-feedback">
+                <div *ngIf="checkoutFormControls.firstname.errors.required">Firstname is required</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputLastname">Lastname</label>
+            <input formControlName="lastname" type="text" class="form-control" id="inputLastname" placeholder="Lastname"
+                [ngClass]="{ 'is-invalid': isCheckoutFormSubmitted && checkoutFormControls.lastname.errors}" />
+            <div *ngIf="isCheckoutFormSubmitted && checkoutFormControls.lastname.errors" class="invalid-feedback">
+                <div *ngIf="checkoutFormControls.lastname.errors.required">Lastname is required</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputEmail">Email</label>
+            <input formControlName="email" type="email" class="form-control" id="inputEmail"
+                    placeholder="Email"
+                    [ngClass]="{ 'is-invalid': isCheckoutFormSubmitted && checkoutFormControls.email.errors}" />
+                <div *ngIf="isCheckoutFormSubmitted && checkoutFormControls.email.errors"
+                    class="invalid-feedback">
+                    <div *ngIf="checkoutFormControls.email.errors.required">Email is required</div>
+                    <div *ngIf="checkoutFormControls.email.errors.email">Please enter valid email</div>
+
+                </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputZip">Zip Code</label>
+            <input formControlName="zipCode" type="text" class="form-control" id="inputZipCode" placeholder="Zip Code"
+                [ngClass]="{ 'is-invalid': isCheckoutFormSubmitted && checkoutFormControls.zipCode.errors}" />
+            <div *ngIf="isCheckoutFormSubmitted && checkoutFormControls.zipCode.errors" class="invalid-feedback">
+                <div *ngIf="checkoutFormControls.zipCode.errors.required">Zip Code is required</div>
+            </div>
+        </div>
+        <h3>Shipping Address</h3>
+        <div class="form-group">
+            <label for="inputStreetAddress">Street Address</label>
+            <input formControlName="streetAddress" type="text" class="form-control" id="inputStreetAddress"
+                placeholder="Street Address"
+                [ngClass]="{ 'is-invalid': isCheckoutFormSubmitted && checkoutFormControls.streetAddress.errors}" />
+            <div *ngIf="isCheckoutFormSubmitted && checkoutFormControls.streetAddress.errors" class="invalid-feedback">
+                <div *ngIf="checkoutFormControls.streetAddress.errors.required">Street Address is required</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputCity">City</label>
+            <input formControlName="city" type="text" class="form-control" id="inputCity" placeholder="City"
+                [ngClass]="{ 'is-invalid': isCheckoutFormSubmitted && checkoutFormControls.city.errors}" />
+            <div *ngIf="isCheckoutFormSubmitted && checkoutFormControls.city.errors" class="invalid-feedback">
+                <div *ngIf="checkoutFormControls.city.errors.required">City is required</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputState">State</label>
+            <input formControlName="state" type="text" class="form-control" id="inputState" placeholder="State"
+                [ngClass]="{ 'is-invalid': isCheckoutFormSubmitted && checkoutFormControls.state.errors}" />
+            <div *ngIf="isCheckoutFormSubmitted && checkoutFormControls.state.errors" class="invalid-feedback">
+                <div *ngIf="checkoutFormControls.state.errors.required">State is required</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputZip">Zip Code</label>
+            <input formControlName="zipCode" type="text" class="form-control" id="inputZipCode" placeholder="Zip Code"
+                [ngClass]="{ 'is-invalid': isCheckoutFormSubmitted && checkoutFormControls.zipCode.errors}" />
+            <div *ngIf="isCheckoutFormSubmitted && checkoutFormControls.zipCode.errors" class="invalid-feedback">
+                <div *ngIf="checkoutFormControls.zipCode.errors.required">Zip Code is required</div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-warning">PlaceOrder</button>
+    </form>
+</section>

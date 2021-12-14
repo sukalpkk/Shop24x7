@@ -8,6 +8,7 @@ import { AdminAddUserComponent } from './components/admin-add-user/admin-add-use
 import { AdminEditUserComponent } from './components/admin-edit-user/admin-edit-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './components/cart/cart.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 
 @NgModule({
@@ -16,12 +17,13 @@ import { CartComponent } from './components/cart/cart.component';
     AdminAddUserComponent,
     AdminEditUserComponent,
     UserProfileComponent,
-    CartComponent
+    CartComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-     FormsModule,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [],
