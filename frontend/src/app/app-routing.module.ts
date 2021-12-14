@@ -15,15 +15,14 @@ const routes: Routes = [
   {path:"",redirectTo:"register",pathMatch:'full'},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
-  {path:"**",component:ErrorComponent},
   {path:"profile", component: UserProfileComponent},
   {path:"cart", component: CartComponent},
   {path:"checkout", component: CheckoutComponent},
   {path:"admin/orders", component: AdminManageOrdersComponent},
   {path:'admin/addUser', component: AdminAddUserComponent},
   {path:'admin/add-new-product', component:AdminAddNewProductComponent},
-  {path:'admin/products',component:AdminManageProductComponent}
-
+  {path:'admin/products',component:AdminManageProductComponent},
+  {path:"**",component:ErrorComponent},
 ];
 
 @NgModule({
