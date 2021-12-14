@@ -49,29 +49,41 @@
     <h4 class="align-h4">Add New User</h4>
     <div class="center">
        
-                <form>
+                <form [formGroup]="adminAddNewUserForm" (ngSubmit)="onSubmit()">
     
                     <div class="mb-3">
                         <label class="label-font">First Name</label>
-                        <input type="text" class="form-control input-curve" formControlName="firstName" name="firstName" placeholder="First Name">
+                        <input type="text" class="form-control input-curve" formControlName="firstName" name="firstName" placeholder="First Name" [ngClass]="{ 'is-invalid': isadminAddNewUserFormSubmitted && adminFormControls.firstName.errors}"/>
+                        <div *ngIf="isadminAddNewUserFormSubmitted && adminFormControls.firstName.errors" class="invalid-feedback">
+                          <div *ngIf="adminFormControls.firstName.errors.required">First Name is required</div>
+                        </div>
                     </div>
             
                     <div class="mb-3">
                         <label class="label-font">Last Name</label>
-                        <input type="text" class="form-control input-curve" formControlName="lastName" name="lastName" placeholder="Last Name" >
+                        <input type="text" class="form-control input-curve" formControlName="lastName" name="lastName" placeholder="Last Name"[ngClass]="{ 'is-invalid': isadminAddNewUserFormSubmitted && adminFormControls.lastName.errors}"/>
+                        <div *ngIf="isadminAddNewUserFormSubmitted && adminFormControls.lastName.errors" class="invalid-feedback">
+                          <div *ngIf="adminFormControls.lastName.errors.required">Last Name is required</div>
+                        </div>
                     </div>
             
                     <div class="mb-3">
                         <label class="label-font">Email</label>
-                        <input type="text" class="form-control input-curve" formControlName="username" name="username" placeholder="Email" >
+                        <input type="text" class="form-control input-curve" formControlName="email" name="email" placeholder="Email"[ngClass]="{ 'is-invalid': isadminAddNewUserFormSubmitted && adminFormControls.email.errors}"/>
+                        <div *ngIf="isadminAddNewUserFormSubmitted && adminFormControls.email.errors" class="invalid-feedback">
+                          <div *ngIf="adminFormControls.email.errors.required">Email is required</div>
+                        </div>
                     </div>
             
                     <div class="mb-3">
                         <label class="label-font">Password</label>
-                        <input type="password" class="form-control input-curve" formControlName="password" name="password" placeholder="Password" >
+                        <input type="password" class="form-control input-curve" formControlName="password" name="password" placeholder="Password"[ngClass]="{ 'is-invalid': isadminAddNewUserFormSubmitted && adminFormControls.password.errors}"/>
+                        <div *ngIf="isadminAddNewUserFormSubmitted && adminFormControls.password.errors" class="invalid-feedback">
+                          <div *ngIf="adminFormControls.password.errors.required">Password is required</div>
+                        </div>
                     </div>
     
-                    <br />
+                    
                     
                     <button class="button button1" type="submit">Submit</button>
                    
