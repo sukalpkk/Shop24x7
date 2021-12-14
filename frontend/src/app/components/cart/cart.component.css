@@ -2,3 +2,26 @@
     padding:20px;
     width:700px;
 }
+
+.total{
+    display: flex;
+    justify-content: end;
+}
+
+/* tr{
+    display: flex;
+    justify-content: space-between;
+} */
+
+.label{
+    margin-top: -8px;
+    margin-bottom: -8px;
+}
+
+
+.btn-transparent{
+    border: none;
+    background: none;
+    color: red;
+    margin-left: -12px;
+}

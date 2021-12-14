@@ -6,20 +6,25 @@
             <tr *ngFor="let cartItem of cartItems; let i = index">
                 <td>
                     <h3>{{cartItem.name}}</h3>
-                    <p>{{cartItem.price | currency}}</p>
-                    <p>{{cartItem.discount | currency}}</p>
-                    <a (click)="removeCartItem(i)">Remove</a>
+                    <p class="label">Price {{cartItem.price | currency}}</p>
+                    <p class="label">Discount {{cartItem.discount | currency}}</p>
+                    <button class="btn btn-transparent label" (click)="removeCartItem(i)">Remove</button>
                 </td>
                 <td>{{cartItem.price| currency}}</td>
             </tr>
             <tr>
-                Grand Total {{ getTotal() | currency}}
+                <td></td>
+                <td>
+                    <p>
+                        Grand Total {{ getTotal() | currency}}
+                    </p>
+                    <p routerLinkActive="active">
+                        <a routerLink="/checkout">
+                            <button class="btn btn-warning">Checkout</button>
+                        </a>
+                    </p>
+                </td>
 
-                <p routerLinkActive="active">
-                    <a routerLink="/checkout">
-                        <button class="btn btn-warning">Checkout</button>
-                    </a>
-                </p>
             </tr>
         </tbody>
     </table>
