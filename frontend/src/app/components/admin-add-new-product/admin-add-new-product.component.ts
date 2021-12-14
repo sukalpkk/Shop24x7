@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ProductPrice } from 'src/app/directives/product-price.validator';
+import { ReactiveMustMatch } from 'src/app/directives/reactive-must-match.validator';
 @Component({
   selector: 'app-admin-add-new-product',
   templateUrl: './admin-add-new-product.component.html',
@@ -28,6 +30,8 @@ export class AdminAddNewProductComponent implements OnInit {
       discountprice:['',[Validators.required]],
       productimage:['',[Validators.required]],
       productdescription:['',[Validators.required,Validators.minLength(20)]],
+    },{
+      validator: ReactiveMustMatch('price','discountprice')
     })
   }
 

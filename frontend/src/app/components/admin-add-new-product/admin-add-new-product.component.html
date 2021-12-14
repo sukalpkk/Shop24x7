@@ -81,7 +81,7 @@
                           <input type="text" class="form-control input-curve" formControlName="discountprice" name="discountprice" placeholder="Discount Price" [ngClass]="{ 'is-invalid': isadminAddNewProductFormSubmitted && adminFormControls.discountprice.errors}"/>
                           <div *ngIf="isadminAddNewProductFormSubmitted && adminFormControls.discountprice.errors" class="invalid-feedback">
                             <div *ngIf="adminFormControls.discountprice.errors.required">Discount Price is required</div>
-
+                            <div *ngIf="adminFormControls.discountprice.errors.mustMatch">Discount Price Should be less than Actual Price</div>
                           </div>
                       </div>
 
@@ -107,7 +107,7 @@
                         <input type="checkbox" class="checkbox" formControlName="checkbox" name="checkbox" />
                     </div>
 
-                    <button class="button button1" type="submit" >Submit</button>
+                    <button data-testid="add-new-button"class="button button1" type="submit" >Add New Product</button>
                      
                   </form>
       </div>

@@ -9,6 +9,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { AdminManageOrdersComponent } from './components/admin-manage-orders/admin-manage-orders.component';
 import { AdminAddNewProductComponent } from './components/admin-add-new-product/admin-add-new-product.component';
 import { AdminAddUserComponent } from './components/admin-add-user/admin-add-user.component';
+import { AdminManageProductComponent } from './components/admin-manage-product/admin-manage-product.component';
 
 const routes: Routes = [
   {path:"",redirectTo:"register",pathMatch:'full'},
@@ -21,6 +22,8 @@ const routes: Routes = [
   {path:"admin/orders", component: AdminManageOrdersComponent},
   {path:'admin/addUser', component: AdminAddUserComponent},
   {path:'admin/add-new-product', component:AdminAddNewProductComponent},
+  {path:'admin/products',component:AdminManageProductComponent}
+
 ];
 
 @NgModule({
