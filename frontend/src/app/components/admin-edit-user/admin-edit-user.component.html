@@ -1,50 +1,6 @@
-<div id="container">
-    <div id="header">
-        <nav class="navbar navbar-expand-lg navbar-light background-color">
-    
-          <a class="navbar-brand icon-font" href="#">Shop 24x7</a>
-          
-        
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      
-            <ul class="navbar-nav mr-auto">
-      
-              <li class="nav-item nav-text-font">
-                <a class="nav-link" href="#">Home</a>
-              </li>
-              
-              <li class="nav-item nav-text-font">
-                <a class="nav-link" href="#">Departments</a>
-              </li>
-      
-              <li class="nav-item nav-text-font">
-                <a class="nav-link" href="#">Offers</a>
-              </li>
-      
-              <li class="nav-item nav-text-font">
-                  <a class="nav-link" href="#">Profile</a>
-              </li>
-      
-            </ul>
-      
-            <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            </form>
-      
-          <ul class="navbar-nav mr-auto mr-sm-2">
-            
-             <a class="nav-link" href="#"> <img src="assets\icons\noun-shopping-cart-1009485.png" alt="" width="80px" height="50px"></a>
-           
-          </ul>
-      
-          </div>
-        </nav>
-      
-      
- </div>
-    
-<div id="body">
- 
+   
+<div>
+ <br>
 <h4>Manage User</h4>
 <br>
   <table class="table">
@@ -66,8 +22,8 @@
         <td>@mdo</td>
         <td>1</td>
         <td>
-            <button>Edit</button>&nbsp;
-            <button>Delete</button>
+            <button  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info">Edit</button>&nbsp;
+            <button class="btn btn-danger mx-3">Delete</button>
         </td>
       </tr>
       <tr>
@@ -77,9 +33,9 @@
         <td>@fat</td>
         <td>@fat</td>
         <td>
-            <button>Edit</button>&nbsp;
-            <button>Delete</button>
-        </td>
+          <button  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info">Edit</button>&nbsp;
+          <button class="btn btn-danger mx-3">Delete</button>
+      </td>
       </tr>
       <tr>
        
@@ -88,84 +44,85 @@
         <td>@twitter</td>
         <td>@twitter</td>
         <td>
-            <button>Edit</button>&nbsp;
-            <button>Delete</button>
-        </td>
-      </tr>
-      <tr>
-       
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-        <td>@twitter</td>
-        <td>
-            <button>Edit</button>&nbsp;
-            <button>Delete</button>
-        </td>
-      </tr>
-      <tr>
-       
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-        <td>@twitter</td>
-        <td>
-            <button>Edit</button>&nbsp;
-            <button>Delete</button>
-        </td>
-      </tr>
-      <tr>
-       
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-        <td>@twitter</td>
-        <td>
-            <button>Edit</button>&nbsp;
-            <button>Delete</button>
-        </td>
-      </tr>
-      <tr>
-       
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-        <td>@twitter</td>
-        <td>
-            <button>Edit</button>&nbsp;
-            <button>Delete</button>
-        </td>
-      </tr>
-      <tr>
-       
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-        <td>@twitter</td>
-        <td>
-            <button>Edit</button>&nbsp;
-            <button>Delete</button>
-        </td>
-      </tr>
-      <tr>
-       
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-        <td>@twitter</td>
-        <td>
-            <button>Edit</button>&nbsp;
-            <button>Delete</button>
-        </td>
+          <button  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info">Edit</button>&nbsp;
+          <button class="btn btn-danger mx-3">Delete</button>
+      </td>
       </tr>
     </tbody>
   </table>
 
-</div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Employee Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
 
-<div id="footer">
-    <div class=" p-4 background-color font">© 2021 Copyright
+         
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()" [mustMatch]="['register_password','register_confirm_password']">
+              
+              
+      
+               
+              <div class="mb-3">
+                <label class="label-font">Firstname</label>
+                  <input formControlName="register_first_name" type="text" class="form-control input-curve" id="register_first_name" 
+                    [ngClass]="{ 'is-invalid': isUserFormSubmitted && userFormControls.register_first_name.errors}" required>
+                    
+                  <div *ngIf="isUserFormSubmitted && userFormControls.register_first_name.errors" class="invalid-feedback">
+                    <div *ngIf="userFormControls.register_first_name.errors.required">First name is required and must be a
+                      valid name</div>
+                  </div>
+              </div>
+
+              <div class="mb-3">
+                <label class="label-font">LastName</label>
+                  <input formControlName="register_last_name" type="text"  class="form-control input-curve" id="register_last_name" 
+                    [ngClass]="{ 'is-invalid': isUserFormSubmitted && userFormControls.register_last_name.errors}" required>
+                
+                    <div *ngIf="isUserFormSubmitted && userFormControls.register_last_name.errors" class="invalid-feedback">
+                    <div *ngIf="userFormControls.register_last_name.errors.required">Last name is required and must be a valid
+                      name</div>
+                  </div>
+                </div>
+               
+      
+                <div class="mb-3">
+                  <label class="label-font">Email</label>
+                  <input formControlName="register_email" type="email" class="form-control input-curve" id="register_email"
+                    [ngClass]="{ 'is-invalid': isUserFormSubmitted && userFormControls.register_email.errors}" required>
+                  <div *ngIf="isUserFormSubmitted && userFormControls.register_email.errors" class="invalid-feedback">
+                    <div *ngIf="userFormControls.register_email.errors.required">Email is required</div>
+                    <div *ngIf="userFormControls.register_email.errors.email">Enter valid email address, eg,. john@example.com
+                    </div>
+                  </div>
+                </div>
+      
+      
+            
+                <div class="mb-3">
+                  <label class="label-font">Password</label>
+                  <input formControlName="register_password" type="password" class="form-control input-curve" id="register_password"
+                    [ngClass]="{ 'is-invalid': isUserFormSubmitted && userFormControls.register_password.errors}" required />
+                  <div *ngIf="isUserFormSubmitted && userFormControls.register_password.errors" class="invalid-feedback">
+                    <div *ngIf="userFormControls.register_password.errors.required">Password is required</div>
+                    <div *ngIf="userFormControls.register_password.errors.minlength">Password must be atleast 6 characters
+                    </div>
+                  </div>
+                </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
+        </div>
+    
+        </div>
+      </div>
     </div>
-</div>
+    
 
 </div>

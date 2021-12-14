@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AdminAddUserComponent } from './components/admin-add-user/admin-add-user.component';
 import { AdminEditUserComponent } from './components/admin-edit-user/admin-edit-user.component';
-
 import { AdminAddNewProductComponent } from './components/admin-add-new-product/admin-add-new-product.component';
 import { AdminManageProductComponent } from './components/admin-manage-product/admin-manage-product.component';
 import { AdminManageOrdersComponent } from './components/admin-manage-orders/admin-manage-orders.component';
@@ -20,6 +19,8 @@ import { ErrorComponent } from './components/error/error.component';
 import { MustMatchDirective } from './shared/must-match.directive';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,9 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegisterComponent,
     ErrorComponent,
-    MustMatchDirective
+    MustMatchDirective,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
