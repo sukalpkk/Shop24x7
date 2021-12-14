@@ -93,3 +93,15 @@ body {
 #container {
    height:100%;
 }
+
+.checkbox{
+    width: 20px;
+    height: 20px;
+}
+
+.input-size{
+
+  height:200px; 
+
+
+}
