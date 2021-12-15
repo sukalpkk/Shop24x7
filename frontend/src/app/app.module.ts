@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { AdminAddUserComponent } from './components/admin-add-user/admin-add-user.component';
 import { AdminEditUserComponent } from './components/admin-edit-user/admin-edit-user.component';
 import { AdminAddNewProductComponent } from './components/admin-add-new-product/admin-add-new-product.component';
@@ -28,14 +28,13 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     AppComponent,
     AdminAddUserComponent,
     AdminEditUserComponent,
-    UserProfileComponent,
+    ProfileComponent,
     CartComponent,
     CheckoutComponent,
     AdminAddNewProductComponent,
     AdminManageProductComponent,
     AdminManageOrdersComponent,
     ProductPriceDirective,
-    UserProfileComponent,
     LoginComponent,
     RegisterComponent,
     ErrorComponent,
