@@ -21,6 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ErrorComponent,
     MustMatchDirective,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
