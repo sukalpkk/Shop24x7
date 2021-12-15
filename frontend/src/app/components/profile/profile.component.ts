@@ -23,9 +23,13 @@ export class ProfileComponent implements OnInit {
       firstname:"John",
       lastname:"Doe",
       email:"johndoe@gmail.com",
+      profileImage:this.profileImg,
       phone:"1234567890",
       interests:"work",
-      address:"123 N St"
+      address:{ streetAddress:"123 N St",
+        city:"",
+        state:"",
+        zipcode:""}
     }
   }
 
@@ -39,9 +43,13 @@ export class ProfileComponent implements OnInit {
       firstname:"John",
       lastname:"Doe",
       email:"johndoe@gmail.com",
+      profileImage:this.profileImg,
       phone:"1234567890",
       interests:"work",
-      address:"123 N St"
+      address:{ streetAddress:"123 N St",
+        city:"",
+        state:"",
+        zipcode:""}
     }
   }
 

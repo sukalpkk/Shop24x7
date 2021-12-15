@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { IProfile } from 'src/app/models/profile.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -8,9 +7,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
-
-  public profile: IProfile;
-  public profileImg = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUSEhIVFRUVFRUVFRUVFRcVFRcVFRUXFxUVFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDQ0NDw0NDisZFRkrKzctLS0tKy0tLTctKy0tKy0tLS0rLTctNy0tNzcrLSstKy0tNystLS03Ny0rLS0rLf/AABEIAOEA4QMBIgACEQEDEQH/xAAWAAEBAQAAAAAAAAAAAAAAAAAAAQL/xAAbEAEBAQACAwAAAAAAAAAAAAAAARECQSGBwf/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AMkBpCqgChIgALgIBQQDACgBixKsBFAAiKBDQANEBdNAEABNFwBQAAAUEAClAogBoigBADQUAqALqYuoCwCgiighQoIACiII0RNBVIQAMACwAASqCIoABoEAAWIAqABqomg0JS0FEKBANA0VABJAFVIApolACABiAKipAUomABgABAVABRAFKICiALAQAAFMDABbCwEAEAUVCKAhhgAABgQBIKAgpQRSQsBIoYCLYYAYACCggqRRSCkBBUAAoFIACKgAoAyqAohAUAFiKgBAgEUAQFBPAagKugCiKAgUDCiggAFMCArKpQEVAFRQBQEkWxMUCgAkUAChQTAxAbAAEKAKgKioCwADCwgBiYpQSwxUAkXABLFxKoJi4AFMAEWgAUQFQAUSKCCoAasNBFMANRSAAAFIYCKigCKARFgESmLQRQoAAIUoCiYAAAtQoABQUQBYIugAAVFAQCgAaBQAMVABaRAAUEoAINYAkoABQAAAABRACKSgJBUAFQAgAigAkXTRApqioFAAAVFwBDQBSosADUBcIIACgi1FABAUSgBQoFomqAIugCatAVAFEXQT0KAyolBRMAUADUVMBQANVFA0pYAhFARLVANQoABIAEUAEwFEAa0QEQFFEXUBQKBgGgIoAACoAAAJpQwEVAFwAAIAqCggEBQASLABDkALCfQEEAVb00AM0oCAgKLEAU5ACCAixQBIUAVOgBYkAUAEf//Z";
   public shippingAddressForm : FormGroup ;
   public checkoutForm : FormGroup ;
   public userAddress:any;
@@ -24,30 +20,11 @@ export class CheckoutComponent implements OnInit {
     this.isUserAddressFormSubmitted = false;
     this.isUserAddressEditable = false;
     this.isCheckoutFormSubmitted = false;
-    this.profile = {
-      firstname:"John",
-      lastname:"Doe",
-      email:"johndoe@gmail.com",
-      phone:"1234567890",
-      interests:"work",
-      address:"123 N St"
-    }
+  
   }
 
   public ngOnInit(): void {
     this.initializeCheckoutForm();
-    this.initializeUserProfile();
-  }
-
-  public initializeUserProfile(){
-    this.profile = {
-      firstname:"John",
-      lastname:"Doe",
-      email:"johndoe@gmail.com",
-      phone:"1234567890",
-      interests:"work",
-      address:"123 N St"
-    }
   }
 
   public initializeCheckoutForm(){
@@ -69,7 +46,7 @@ export class CheckoutComponent implements OnInit {
   public onPlaceOrder():void{
     this.isUserAddressFormSubmitted = true;
     this.userAddress = this.shippingAddressForm.getRawValue();
-    this.profile.address = this.shippingAddressForm.getRawValue();
+    //this.profile.address = this.shippingAddressForm.getRawValue();
     this.isUserAddressEditable = false;
     // this.userformService.postReactiveUsers(this.userProfile).subscribe((response):any=>{
     //   console.log(response,"reactive form")
