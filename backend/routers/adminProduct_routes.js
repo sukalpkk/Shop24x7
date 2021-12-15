@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     productModel.find((err, result) => {
         if (err) { throw err; }
         else {
-            res.render('employee.ejs', { employees: result })
+            // res.render('employee.ejs', { employees: result })
         }
     })
 })
@@ -18,6 +18,7 @@ router.post('/addProduct', (req, res) => {
             return console.log(err);
         } else {
             console.log('saved to database')
+            res.send(results)
             // res.redirect('/employee')
         }
     })
