@@ -2,8 +2,10 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser= require('body-parser')
-let mongoosedb = mongoose.connect('mongodb://127.0.0.1:27017/employeedatabase');
+let mongoosedb = mongoose.connect('mongodb://127.0.0.1:27017/shop24x7database');
 const profileModel = require('./models/profile_model');
+
+const profileRoutes = require('./routers/profile_routes')
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
@@ -31,6 +33,6 @@ app.post('/addProfile', (req, res) => {
     })
 })
 
-app.listen(3600, function () {
+app.listen(8080, function () {
     console.log("server started in Port 3600")
 })
