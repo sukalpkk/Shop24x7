@@ -3,7 +3,7 @@ const Schema = mongoose.schema;
 
 
 
-const profileModel = new Schema({
+const profileModel =  mongoose.Schema({
     name:{type:String, required : true},
     email:{type:String},
     address:{type:String},
@@ -23,4 +23,4 @@ const profileModel = new Schema({
     }},
 })
 
-module.exports = mongoose.model('employee',profileModel)
+module.exports = mongoose.model('Profile',profileModel)
