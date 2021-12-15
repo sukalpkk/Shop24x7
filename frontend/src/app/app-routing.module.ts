@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ErrorComponent } from './components/error/error.component';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { AdminManageOrdersComponent } from './components/admin-manage-orders/admin-manage-orders.component';
@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:"",redirectTo:"register",pathMatch:'full'},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
-  {path:"profile", component: UserProfileComponent},
+  {path:"profile", component: ProfileComponent},
   {path:"product-details",component:ProductDetailsComponent},
   {path:"search/:searchTerm",component:ProductDetailsComponent},
   {path:"cart", component: CartComponent},

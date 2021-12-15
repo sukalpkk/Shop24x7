@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IUserProfile } from 'src/app/models/user-profile.model';
+import { IProfile } from 'src/app/models/profile.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -9,7 +9,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class CheckoutComponent implements OnInit {
 
-  public user: IUserProfile;
+  public profile: IProfile;
   public profileImg = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUSEhIVFRUVFRUVFRUVFRcVFRcVFRUXFxUVFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDQ0NDw0NDisZFRkrKzctLS0tKy0tLTctKy0tKy0tLS0rLTctNy0tNzcrLSstKy0tNystLS03Ny0rLS0rLf/AABEIAOEA4QMBIgACEQEDEQH/xAAWAAEBAQAAAAAAAAAAAAAAAAAAAQL/xAAbEAEBAQACAwAAAAAAAAAAAAAAARECQSGBwf/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AMkBpCqgChIgALgIBQQDACgBixKsBFAAiKBDQANEBdNAEABNFwBQAAAUEAClAogBoigBADQUAqALqYuoCwCgiighQoIACiII0RNBVIQAMACwAASqCIoABoEAAWIAqABqomg0JS0FEKBANA0VABJAFVIApolACABiAKipAUomABgABAVABRAFKICiALAQAAFMDABbCwEAEAUVCKAhhgAABgQBIKAgpQRSQsBIoYCLYYAYACCggqRRSCkBBUAAoFIACKgAoAyqAohAUAFiKgBAgEUAQFBPAagKugCiKAgUDCiggAFMCArKpQEVAFRQBQEkWxMUCgAkUAChQTAxAbAAEKAKgKioCwADCwgBiYpQSwxUAkXABLFxKoJi4AFMAEWgAUQFQAUSKCCoAasNBFMANRSAAAFIYCKigCKARFgESmLQRQoAAIUoCiYAAAtQoABQUQBYIugAAVFAQCgAaBQAMVABaRAAUEoAINYAkoABQAAAABRACKSgJBUAFQAgAigAkXTRApqioFAAAVFwBDQBSosADUBcIIACgi1FABAUSgBQoFomqAIugCatAVAFEXQT0KAyolBRMAUADUVMBQANVFA0pYAhFARLVANQoABIAEUAEwFEAa0QEQFFEXUBQKBgGgIoAACoAAAJpQwEVAFwAAIAqCggEBQASLABDkALCfQEEAVb00AM0oCAgKLEAU5ACCAixQBIUAVOgBYkAUAEf//Z";
   public shippingAddressForm : FormGroup ;
   public checkoutForm : FormGroup ;
@@ -24,7 +24,7 @@ export class CheckoutComponent implements OnInit {
     this.isUserAddressFormSubmitted = false;
     this.isUserAddressEditable = false;
     this.isCheckoutFormSubmitted = false;
-    this.user = {
+    this.profile = {
       firstname:"John",
       lastname:"Doe",
       email:"johndoe@gmail.com",
@@ -40,7 +40,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   public initializeUserProfile(){
-    this.user = {
+    this.profile = {
       firstname:"John",
       lastname:"Doe",
       email:"johndoe@gmail.com",
@@ -69,7 +69,7 @@ export class CheckoutComponent implements OnInit {
   public onPlaceOrder():void{
     this.isUserAddressFormSubmitted = true;
     this.userAddress = this.shippingAddressForm.getRawValue();
-    this.user.address = this.shippingAddressForm.getRawValue();
+    this.profile.address = this.shippingAddressForm.getRawValue();
     this.isUserAddressEditable = false;
     // this.userformService.postReactiveUsers(this.userProfile).subscribe((response):any=>{
     //   console.log(response,"reactive form")

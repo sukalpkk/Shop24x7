@@ -1,4 +1,4 @@
-export interface IUserProfile{
+export interface IProfile{
     firstname:String;
     lastname:String;
     email:String;
