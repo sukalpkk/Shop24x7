@@ -3,6 +3,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductPrice } from 'src/app/directives/product-price.validator';
 import { ReactiveMustMatch } from 'src/app/directives/reactive-must-match.validator';
 import { AddNewProductService } from 'src/app/services/add-new-product.service';
+import { first } from 'rxjs/operators';
+import { AlertService } from 'src/app/services/alert.service';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-admin-add-new-product',
   templateUrl: './admin-add-new-product.component.html',
@@ -14,7 +19,8 @@ export class AdminAddNewProductComponent implements OnInit {
   public isadminAddNewProductFormSubmitted:boolean;
   public addProductDetail: any;
 
-  constructor(private formBuilder: FormBuilder, private addProductService:AddNewProductService) { 
+  constructor(private formBuilder: FormBuilder, private _httpClient:HttpClient,private addProductService:AddNewProductService,private alertService: AlertService,private router: Router,
+    ) { 
     this.adminAddNewProductForm = {} as FormGroup;
     this.isadminAddNewProductFormSubmitted = false;
     this.addProductDetail={};
@@ -33,6 +39,7 @@ export class AdminAddNewProductComponent implements OnInit {
       discountprice:['',[Validators.required]],
       productimage:['',[Validators.required]],
       productdescription:['',[Validators.required,Validators.minLength(20)]],
+      checkbox:[false]
     },{
       validator: ReactiveMustMatch('price','discountprice')
     })
@@ -45,19 +52,21 @@ export class AdminAddNewProductComponent implements OnInit {
   public onSubmit():void{
     this.isadminAddNewProductFormSubmitted = true;
 
-    if (this.adminAddNewProductForm.valid) {
-      console.log('form submitted');
-      this.addProductDetail = this.adminAddNewProductForm.getRawValue();
-      this.addProductService.addProduct(this.addProductDetail).subscribe((response):any=>{
-        this.adminAddNewProductForm.reset();
-      })
-     
-      
-    } else {
-      alert("Enter all fields")
+    if (this.adminAddNewProductForm.invalid) {
+      return;
     }
-    
+
+  
+
+    this.addProductService.addProduct(this.adminAddNewProductForm.getRawValue()).pipe(first())
+      .subscribe(
+        data => {
+          alert("Product Added");
+          this.router.navigate(['admin/products'])
+        },
+        error => {
+          this.alertService.error(error);
+        });
+
   }
-
-
 }

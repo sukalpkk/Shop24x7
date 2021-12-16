@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-const productModel = new Schema({
+
+const ProductSchema = new mongoose.Schema({
     productname:{type:String},
     department:{type:String},
     price:{type:String},
     discountprice:{type:String},
     productimage:{type:String},
     productdescription:{type:String},
-    checkbox:{type:String},
-})
-
-module.exports = mongoose.model('product',productModel)
+    checkbox:{type:Boolean},
+});
+mongoose.model('Products', ProductSchema);
+module.exports = mongoose.model('Products');

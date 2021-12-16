@@ -2,11 +2,16 @@
 //creating interface 
 const mongoose = require('mongoose');  
 const UserSchema = new mongoose.Schema({  
-  firstName: String,
-  lastName: String,
+  firstname: String,
+  lastname: String,
+  password: String,
   email: String,
-  password: String
+  phone:String,
+  interests:String,
+  profileImage: String,
+  address:Object,
+  userrole:String
 });
-mongoose.model('EduUser', UserSchema);
+mongoose.model('Users', UserSchema);
 
-module.exports = mongoose.model('EduUser');
+module.exports = mongoose.model('Users');
