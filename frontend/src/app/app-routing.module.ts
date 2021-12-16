@@ -14,6 +14,7 @@ import { AdminEditUserComponent } from './components/admin-edit-user/admin-edit-
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { OffersComponent } from './components/offers/offers.component';
 import { DepartmentsComponent } from './components/departments/departments.component';
+import { PlaceorderComponent } from './components/placeorder/placeorder.component';
 
 const routes: Routes = [
   {path:"",redirectTo:"register",pathMatch:'full'},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path:"offers",component:OffersComponent},
   {path:"cart", component: CartComponent},
   {path:"checkout", component: CheckoutComponent},
+  {path:"order", component: PlaceorderComponent},
   {path:"admin/orders", component: AdminManageOrdersComponent},
   {path:'admin/addUser', component: AdminAddUserComponent},
   {path:'admin/editUser',component: AdminEditUserComponent},
