@@ -1,8 +1,11 @@
 const express = require('express');
 const app = express();
 const db = require('./db');
-const cors = require('cors');
-app.use(cors())
+var cors = require('cors');
+app.use(cors({
+    origin: 'http://localhost:4200'
+}));
+
 const UserController = require('./user/UserController');
 app.use('/users', UserController);
 

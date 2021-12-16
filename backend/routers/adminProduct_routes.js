@@ -1,25 +1,55 @@
-const express = require('express')
+const express = require('express');
 const router = express.Router();
-var productController = require('../controller/productController');
+const LocalStorage = require('node-localstorage').LocalStorage;
+localStorage = new LocalStorage('./scratch');
+const bodyParser = require('body-parser');
+const Products = require('../models/product_model');
+const session = require('express-session');
 
+router.use(session({
+  secret: 'edurekaSecert1',
+  resave: false,
+  saveUninitialized: true
+}));
 
-router.get('/', function(req, res, next) {
-    res.send('respond with a resource');
-  });
+router.use(bodyParser.urlencoded({
+  extended: false
+}));
+router.use(bodyParser.json());
 
-  
-router.post('/save',productController.saveProduct);
+router.post('/addProduct', function(req, res) {
+  Products.create({
+    productname: req.body.productname,
+    department: req.body.department,
+    price: req.body.price,
+    discountprice: req.body.discountprice,
+    productimage:req.body.productimage,
+    productdescription: req.body.productdescription,
+    checkbox:req.body.checkbox
+  },
+    function(err, user) {
+      if (err) return res.status(500).send("There was a problem Adding the Product.")
+      res.send({
+        status:"success",
+        message: "Product Added successfully"
+      })
+    });
+});
 
-router.get('/products', productController.getAllProducts);
+router.get('/getproducts', function(req, res) {
+  Products.find((err,products)=>{
+    if(err) throw err;
+  res.send(products);
+},
+function(err, user) {
+  if (err) return res.status(500).send("There was a problem Getting All Products.")
+    
+      res.send({
+        status:"success",
+        message: "Product Added successfully"
+      })
+    });
+});
 
-
-router.get('/products/:id', productController.getProductById);
-
-router.delete('/delete/:id', productController.deleteProduct);
-
-router.put('/update/:id', productController.updateProduct);
-
-
-router.post('/edit/:id', productController.editProduct);
 
 module.exports= router;
