@@ -12,16 +12,26 @@ import { AdminAddUserComponent } from './components/admin-add-user/admin-add-use
 import { AdminManageProductComponent } from './components/admin-manage-product/admin-manage-product.component';
 import { AdminEditUserComponent } from './components/admin-edit-user/admin-edit-user.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { OffersComponent } from './components/offers/offers.component';
+import { DepartmentsComponent } from './components/departments/departments.component';
+import { PlaceorderComponent } from './components/placeorder/placeorder.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { CategoryComponent } from './components/category/category.component';
 
 const routes: Routes = [
   {path:"",redirectTo:"register",pathMatch:'full'},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
+  {path:"home",component:HomepageComponent},
+  {path:"categories",component:CategoryComponent},
   {path:"profile", component: ProfileComponent},
   {path:"product-details",component:ProductDetailsComponent},
   {path:"search/:searchTerm",component:ProductDetailsComponent},
+  {path:"departments",component:DepartmentsComponent},
+  {path:"offers",component:OffersComponent},
   {path:"cart", component: CartComponent},
   {path:"checkout", component: CheckoutComponent},
+  {path:"order", component: PlaceorderComponent},
   {path:"admin/orders", component: AdminManageOrdersComponent},
   {path:'admin/addUser', component: AdminAddUserComponent},
   {path:'admin/editUser',component: AdminEditUserComponent},

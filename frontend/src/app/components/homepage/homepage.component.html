@@ -1,0 +1,52 @@
+<div style="width: 100%;justify-content: center;">
+    <section class="container_new" style="background-color: rgb(173, 166, 166);">
+        <div>
+            <h3>Welcome to Shop 24x7</h3>
+    
+        </div>
+    </section>
+    <div class="row align-items-center" style="width: 81%;">
+        <div class="col card" style="min-height: 200px;background-color: rgb(173, 166, 166);">
+            <div class="content" align="center">
+                <div>
+                    <h4 routerLink="/categories">Category 1</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col card" style="min-height: 200px;background-color: rgb(173, 166, 166);">
+            <div>
+                <h4 routerLink="/categories">Category 2</h4>
+            </div>
+        </div>
+        <div class="col card" style="min-height: 200px;background-color: rgb(173, 166, 166);">
+            <div>
+                <h4 routerLink="/categories">Category 3</h4>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div>
+        <div style="float:left; text-align: left;width: 90%;">
+            <div style="float:left; justify-content: left !important;width:90%;">
+                <b>Top Products</b>
+            </div>
+            <div class="">
+                <div class="card" *ngFor="let productdetails of productDetails">
+                    <div class="content" align="center">
+                        <div class="card-body">
+                            <p class="card-title">{{productdetails.name}}</p>
+                        </div>
+                        <img class="card-img-top" [src]="productdetails.image" alt="Product Image"
+                            data-testid="product_page_banner">
+                        <div class="card-body">
+                            <small class="text-muted1">{{productdetails.price |currency}}</small>&nbsp;
+                        </div>
+                        <button class="btn btn-success" data-testid="product_page_add_to_cart">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
