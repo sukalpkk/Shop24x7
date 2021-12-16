@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 const db = require('./db');
-
+const cors = require('cors');
+app.use(cors())
 const UserController = require('./user/UserController');
 app.use('/users', UserController);
 
