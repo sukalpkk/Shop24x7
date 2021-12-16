@@ -22,6 +22,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { OffersComponent } from './components/offers/offers.component';
+import { DepartmentsComponent } from './components/departments/departments.component';
+import { PlaceorderComponent } from './components/placeorder/placeorder.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { CategoryComponent } from './components/category/category.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +46,12 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     MustMatchDirective,
     HeaderComponent,
     FooterComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    OffersComponent,
+    DepartmentsComponent,
+    PlaceorderComponent,
+    HomepageComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,

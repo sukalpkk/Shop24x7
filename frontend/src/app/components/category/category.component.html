@@ -1,0 +1,35 @@
+<div>
+   
+    <section >
+        <div class="row">    
+            <div class="col-3">
+            </div>
+            <div class="col-7"><h3>Mobile Phones</h3></div>                
+            <div class="col-3 align-top">
+                <ul class="list-unstyled" class="pricelist">
+                    <li>Price Range</li>
+                    <li *ngFor="let pricerange of priceRangeList">{{pricerange}}</li>               
+                </ul>
+            </div>
+            <div class="col-7">
+                <div style="justify-content: left !important;">
+                    <div class="card" *ngFor="let productdetails of productDetails">
+                        <div class="content">    
+                            <div>
+                                <p>{{productdetails.name}}</p>
+                            </div>
+                            <img class="card-img-top" [src]="productdetails.image" alt="Product Image"
+                                data-testid="product_page_banner">       
+                            <div>
+                                <small >{{productdetails.price |currency}}</small>&nbsp;    
+                            </div> 
+                            <button class="btn btn-success" data-testid="product_page_add_to_cart" routerLink="/cart">Add to cart</button>   
+                        </div>
+                    </div>    
+                </div>
+            </div>
+          </div>
+    </section>
+    <br/>
+    
+    </div>
