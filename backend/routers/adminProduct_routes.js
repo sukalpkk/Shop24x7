@@ -29,7 +29,6 @@ router.post('/addProduct', function(req, res) {
   },
     function(err, user) {
       if (err) return res.status(500).send("There was a problem Adding the Product.")
-   
       res.send({
         status:"success",
         message: "Product Added successfully"
