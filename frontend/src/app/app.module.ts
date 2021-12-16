@@ -25,6 +25,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { OffersComponent } from './components/offers/offers.component';
 import { DepartmentsComponent } from './components/departments/departments.component';
 import { PlaceorderComponent } from './components/placeorder/placeorder.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { CategoryComponent } from './components/category/category.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { PlaceorderComponent } from './components/placeorder/placeorder.componen
     ProductDetailsComponent,
     OffersComponent,
     DepartmentsComponent,
-    PlaceorderComponent
+    PlaceorderComponent,
+    HomepageComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,

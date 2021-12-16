@@ -15,11 +15,15 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { OffersComponent } from './components/offers/offers.component';
 import { DepartmentsComponent } from './components/departments/departments.component';
 import { PlaceorderComponent } from './components/placeorder/placeorder.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { CategoryComponent } from './components/category/category.component';
 
 const routes: Routes = [
   {path:"",redirectTo:"register",pathMatch:'full'},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
+  {path:"home",component:HomepageComponent},
+  {path:"categories",component:CategoryComponent},
   {path:"profile", component: ProfileComponent},
   {path:"product-details",component:ProductDetailsComponent},
   {path:"search/:searchTerm",component:ProductDetailsComponent},
