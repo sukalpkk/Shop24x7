@@ -68,6 +68,9 @@ export class AdminAddNewProductComponent implements OnInit {
           this.alertService.error(error);
         });
 
+    
+  }
+
 
   }
 }

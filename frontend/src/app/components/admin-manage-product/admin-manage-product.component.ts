@@ -23,8 +23,10 @@ export class AdminManageProductComponent implements OnInit {
     this.adminAddNewProductForm = {} as FormGroup;
     this.isadminAddNewProductFormSubmitted = false;
     this.productDetails = [];
+
     this.ProductDetail={};
     this.UpdateProduct={};
+
   }
 
   public ngOnInit(): void {
@@ -52,7 +54,7 @@ export class AdminManageProductComponent implements OnInit {
     },{
       validator: ReactiveMustMatch('price','discountprice')
     })
-  
+
   }
 
   get adminFormControls(){
