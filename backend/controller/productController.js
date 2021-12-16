@@ -19,8 +19,6 @@ module.exports.saveProduct=(req,res)=>{
 module.exports.getAllProducts = (req,res,next)=>{
     Product.find((err,products)=>{
         if(err) throw err;
-      //console.log(products);
-      //res.send('Products Fetched Successfully',{product : products});
       res.send(products);
     })
 };
@@ -29,7 +27,6 @@ module.exports.getProductById = function(req,res,next){
     Product.findById(req.params.id,(err,product)=>{
         if(err) throw err;
         res.send(product);
-        //console.log(product);
     });
 }
 
@@ -53,7 +50,6 @@ module.exports.updateProduct = (req,res)=>{
     console.log(product);
     Product.findByIdAndUpdate(req.params.id,product,(err,product)=>{
         if(err) throw err;
-        //if(!product) return res.status(404).send('Product Doesnt exist with this Id');
         res.send(product);
     })
 }
