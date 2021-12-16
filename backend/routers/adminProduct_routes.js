@@ -51,5 +51,22 @@ function(err, user) {
     });
 });
 
+// router.post('/update', function(req,res){
+//   var product = new Products(req.body);
+//   console.log(product)
+//   Products.findByIdAndUpdate(req.params.id,product,(err,product)=>{
+//     if(err) throw err;
+//     res.send(product);
+// },
+// function(err, user) {
+//   if (err) return res.status(500).send("There was a problem Updating Product.")
+    
+//       res.send({
+//         status:"success",
+//         message: "Product Updated successfully"
+//       })
+//     });
+
+// });
 
 module.exports= router;

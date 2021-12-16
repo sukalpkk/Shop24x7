@@ -6,4 +6,5 @@ export interface IAdminAddNewProduct{
     productimage:String;
     productdescription:String;
     checkbox:String
+    _id:String
 }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ReactiveMustMatch } from 'src/app/directives/reactive-must-match.validator';
 import { IAdminAddNewProduct } from 'src/app/models/admin-add-new-product.model';
 
@@ -17,25 +17,20 @@ export class AdminManageProductComponent implements OnInit {
   public productDetails: IAdminAddNewProduct[];
   public ProductDetail: any;
   public UpdateProduct: any;
-  
 
-  constructor(private http:HttpClient,private formBuilder: FormBuilder,private router: Router) { 
+  constructor(private http:HttpClient,private formBuilder: FormBuilder,private router: Router,private _route:ActivatedRoute,) { 
     this.adminAddNewProductForm = {} as FormGroup;
     this.isadminAddNewProductFormSubmitted = false;
     this.productDetails = [];
-
     this.ProductDetail={};
     this.UpdateProduct={};
-
   }
 
   public ngOnInit(): void {
     this.initialize();
-
+    
     this.http.get<IAdminAddNewProduct[]>('http://localhost:8080/products/getproducts').subscribe(result=>{
       this.ProductDetail=result;
-      console.log(this.ProductDetail);    
-      console.log(result); 
     }, error=>{
       console.log(error);
     })
@@ -50,7 +45,8 @@ export class AdminManageProductComponent implements OnInit {
       discountprice:['',[Validators.required]],
       productimage:['',[Validators.required]],
       productdescription:['',[Validators.required,Validators.minLength(20)]],
-      checkbox:[false]
+      checkbox:[false],
+      id:[]
     },{
       validator: ReactiveMustMatch('price','discountprice')
     })
@@ -66,6 +62,7 @@ export class AdminManageProductComponent implements OnInit {
   }
 
   public edit(row: any){
+    this.adminAddNewProductForm.controls['id'].setValue(row._id)
     this.adminAddNewProductForm.controls['productname'].setValue(row.productname);
     this.adminAddNewProductForm.controls['department'].setValue(row.department);
     this.adminAddNewProductForm.controls['price'].setValue(row.price);
@@ -73,9 +70,23 @@ export class AdminManageProductComponent implements OnInit {
     this.adminAddNewProductForm.controls['productimage'].setValue(row.productimage);
     this.adminAddNewProductForm.controls['productdescription'].setValue(row.productdescription);
     this.adminAddNewProductForm.controls['checkbox'].setValue(row.checkbox);
+    ;
   }
 
   public update(){
+
+    this.UpdateProduct = this.adminAddNewProductForm.getRawValue();
+    console.log(this.UpdateProduct)
+    this.http.put('http://localhost:8080/products/update/'+this.UpdateProduct.id, this.UpdateProduct).subscribe(result=>{
+
+      alert('Product Updated Successfully');
+      this.adminAddNewProductForm.reset();
+      // console.log(result);
+      // this.router.navigate(['/admin/manage-products']);
+
+    }, (error)=>{
+      console.log(error);
+    })
 
   }
 }
