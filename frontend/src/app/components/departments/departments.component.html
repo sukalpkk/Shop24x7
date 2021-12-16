@@ -1,0 +1,28 @@
+
+<div align="left">
+    &nbsp;&nbsp;&nbsp; <h4 style="margin-right: 40px;">Products</h4>
+</div>
+
+
+<div class="">
+    <div class="card" *ngFor="let productdetails of productDetails">
+        <div class="content" align="center">
+
+            <div class="card-body">
+                <p class="card-title">{{productdetails.name}}</p>
+            </div>
+            <img class="card-img-top" [src]="productdetails.image" alt="Product Image"
+                data-testid="product_page_banner">
+
+
+            <div class="card-body">
+                <small class="text-muted1">{{productdetails.price |currency}}</small>&nbsp;
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<router-outlet></router-outlet>
