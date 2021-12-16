@@ -19,6 +19,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { MustMatchDirective } from './shared/must-match.directive';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
@@ -27,6 +28,10 @@ import { DepartmentsComponent } from './components/departments/departments.compo
 import { PlaceorderComponent } from './components/placeorder/placeorder.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { CategoryComponent } from './components/category/category.component';
+import { AlertComponent } from './components/alert/alert.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from 'src/app/components/helpers/jwt.interceptor';
+import {  ErrorInterceptor } from 'src/app/components/helpers/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -51,17 +56,20 @@ import { CategoryComponent } from './components/category/category.component';
     DepartmentsComponent,
     PlaceorderComponent,
     HomepageComponent,
-    CategoryComponent
+    CategoryComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     NgbModule
   ],
-  providers: [],
+  providers: [   { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
