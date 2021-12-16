@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+<<<<<<< HEAD
+import { ReactiveMustMatch } from 'src/app/directives/reactive-must-match.validator';
+=======
 import { Router } from '@angular/router';
 import { ReactiveMustMatch } from 'src/app/directives/reactive-must-match.validator';
 import { IAdminAddNewProduct } from 'src/app/models/admin-add-new-product.model';
+>>>>>>> main
 
 @Component({
   selector: 'app-admin-manage-product',
@@ -13,12 +17,19 @@ export class AdminManageProductComponent implements OnInit {
 
   public adminAddNewProductForm:FormGroup;
   public isadminAddNewProductFormSubmitted:boolean;
+<<<<<<< HEAD
+
+  constructor(private formBuilder: FormBuilder) { 
+    this.adminAddNewProductForm = {} as FormGroup;
+    this.isadminAddNewProductFormSubmitted = false;
+=======
   public productDetails: IAdminAddNewProduct[];
 
   constructor(private formBuilder: FormBuilder,private router: Router) { 
     this.adminAddNewProductForm = {} as FormGroup;
     this.isadminAddNewProductFormSubmitted = false;
     this.productDetails = [];
+>>>>>>> main
 
   }
 
@@ -37,8 +48,11 @@ export class AdminManageProductComponent implements OnInit {
     },{
       validator: ReactiveMustMatch('price','discountprice')
     })
+<<<<<<< HEAD
+=======
 
     
+>>>>>>> main
   }
 
   get adminFormControls(){

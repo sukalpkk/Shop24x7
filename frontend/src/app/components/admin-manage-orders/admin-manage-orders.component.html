@@ -1,0 +1,21 @@
+<div>
+<section class="container">
+    <h1>Manage Orders</h1>
+
+    <table class="table">
+        <tbody>
+            <tr *ngFor="let order of allOrders; let i = index">
+                <td>
+                    <h3>#{{order.orderId}}</h3>
+                    <p>{{order.user }}</p>
+                </td>
+                <td>
+                    <a (click)="processOrder(i)">Process</a> |
+                    <a (click)="deleteOrder(i)">Delete</a>
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+</div>

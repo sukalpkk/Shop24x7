@@ -1,0 +1,33 @@
+<div>
+<section class="container">
+    <h1>Cart</h1>
+
+    <table class="table">
+        <tbody>
+            <tr *ngFor="let cartItem of cartItems; let i = index">
+                <td>
+                    <h3>{{cartItem.name}}</h3>
+                    <p class="label">Price {{cartItem.price | currency}}</p>
+                    <p class="label">Discount {{cartItem.discount | currency}}</p>
+                    <button class="btn btn-transparent label" (click)="removeCartItem(i)">Remove</button>
+                </td>
+                <td>{{cartItem.price| currency}}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <p>
+                        Grand Total {{ getTotal() | currency}}
+                    </p>
+                    <p routerLinkActive="active">
+                        <a routerLink="/checkout">
+                            <button class="btn btn-warning">Checkout</button>
+                        </a>
+                    </p>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</section>
+</div>

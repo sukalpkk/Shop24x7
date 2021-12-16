@@ -1,0 +1,71 @@
+
+ <div>  
+      <h4 class="align-h4">Add New Product</h4>
+      <div class="center">
+         
+                  <form [formGroup]="adminAddNewProductForm" (ngSubmit)="onSubmit()">
+      
+                      <div class="mb-3">
+                          <label class="label-font">Product Name</label>
+                          <input type="text" class="form-control input-curve" formControlName="productname" name="productname" placeholder="Product Name" [ngClass]="{ 'is-invalid': isadminAddNewProductFormSubmitted && adminFormControls.productname.errors}"/>
+                          <div *ngIf="isadminAddNewProductFormSubmitted && adminFormControls.productname.errors" class="invalid-feedback">
+                            <div *ngIf="adminFormControls.productname.errors.required">Product Name is required</div>
+                            <div *ngIf="adminFormControls.productname.errors.maxlength">Max Length is 64 chars</div>
+                          </div>
+                      </div>
+              
+                      <div class="mb-3">
+                          <label class="label-font">Department</label>
+                          <input type="text" class="form-control input-curve" formControlName="department" name="department" placeholder="Department" [ngClass]="{ 'is-invalid': isadminAddNewProductFormSubmitted && adminFormControls.department.errors}"/>
+                          <div *ngIf="isadminAddNewProductFormSubmitted && adminFormControls.department.errors" class="invalid-feedback">
+                            <div *ngIf="adminFormControls.department.errors.required">Department is required</div>
+                          </div>
+                      </div>
+              
+                      <div class="mb-3">
+                          <label class="label-font">Price</label>
+                          <input type="text" class="form-control input-curve" formControlName="price" name="price" placeholder="Price" [ngClass]="{ 'is-invalid': isadminAddNewProductFormSubmitted && adminFormControls.price.errors}"/>
+                          <div *ngIf="isadminAddNewProductFormSubmitted && adminFormControls.price.errors" class="invalid-feedback">
+                            <div *ngIf="adminFormControls.price.errors.required">Price is required</div>
+                          </div>
+                      </div>
+              
+                      <div class="mb-3">
+                          <label class="label-font">Discount Price</label>
+                          <input type="text" class="form-control input-curve" formControlName="discountprice" name="discountprice" placeholder="Discount Price" [ngClass]="{ 'is-invalid': isadminAddNewProductFormSubmitted && adminFormControls.discountprice.errors}"/>
+                          <div *ngIf="isadminAddNewProductFormSubmitted && adminFormControls.discountprice.errors" class="invalid-feedback">
+                            <div *ngIf="adminFormControls.discountprice.errors.required">Discount Price is required</div>
+                            <div *ngIf="adminFormControls.discountprice.errors.mustMatch">Discount Price Should be less than Actual Price</div>
+                          </div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label class="label-font">Product Image</label>
+                        <input type="text" class="form-control input-curve" formControlName="productimage" name="productimage" placeholder="Product Image" [ngClass]="{ 'is-invalid': isadminAddNewProductFormSubmitted && adminFormControls.productimage.errors}"/>
+                        <div *ngIf="isadminAddNewProductFormSubmitted && adminFormControls.productimage.errors" class="invalid-feedback">
+                          <div *ngIf="adminFormControls.productimage.errors.required">Product Image is required</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="label-font">Product Description</label>
+                        <input type="text" class="form-control input-curve input-size" formControlName="productdescription" name="productdescription" placeholder="Product Description" [ngClass]="{ 'is-invalid': isadminAddNewProductFormSubmitted && adminFormControls.productdescription.errors}"/>
+                        <div *ngIf="isadminAddNewProductFormSubmitted && adminFormControls.productdescription.errors" class="invalid-feedback">
+                          <div *ngIf="adminFormControls.productdescription.errors.required">Product Description is required</div>
+                          <div *ngIf="adminFormControls.productdescription.errors.minlength">Min Length is 20 chars</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="label-font">Top Selling Product</label> &nbsp;
+                        <input type="checkbox" class="checkbox" formControlName="checkbox" name="checkbox" />
+                    </div>
+
+                    <button data-testid="add-new-button"class="button button1" type="submit" >Add New Product</button>
+                     
+                  </form>
+      </div>
+ </div>
+   
+  
+   

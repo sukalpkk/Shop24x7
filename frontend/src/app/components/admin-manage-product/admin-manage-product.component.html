@@ -1,0 +1,135 @@
+    
+<div>
+<br/>
+<br/>
+<div>
+  <h4 class="float-left"><span class="label label-default">Manage products</span></h4>&nbsp;
+<div class="float-left">  
+    <button type="button" class="btn btn-primary products-button" [routerLink]="['/admin/add-new-product']">Add New Products</button>
+</div>
+</div>
+ 
+
+<br>
+  <table class="table">
+    
+    <tbody>
+     
+      <tr>
+       
+        <td>Smart Phone</td>
+       
+        <td>
+            <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info">Edit</button>&nbsp;
+            <button class="btn btn-danger mx-3">Delete</button>
+        </td>
+      </tr>
+      
+      <tr>
+       
+        <td>Larry</td>
+        
+        <td>
+          <button class="btn btn-primary">Edit</button>&nbsp;
+          <button class="btn btn-primary products-button">Delete</button>
+      </td>
+      </tr>
+      <tr>
+       
+        <td>Larry</td>
+        
+        <td>
+          <button class="btn btn-primary">Edit</button>&nbsp;
+          <button class="btn btn-primary products-button">Delete</button>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Employee Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form [formGroup]="adminAddNewProductForm" (ngSubmit)="onSubmit()">
+      
+          <div class="mb-3">
+              <label class="label-font">Product Name</label>
+              <input type="text" class="form-control input-curve" formControlName="productname" name="productname" placeholder="Product Name" [ngClass]="{ 'is-invalid': isadminAddNewProductFormSubmitted && adminFormControls.productname.errors}"/>
+              <div *ngIf="isadminAddNewProductFormSubmitted && adminFormControls.productname.errors" class="invalid-feedback">
+                <div *ngIf="adminFormControls.productname.errors.required">Product Name is required</div>
+                <div *ngIf="adminFormControls.productname.errors.maxlength">Max Length is 64 chars</div>
+              </div>
+          </div>
+  
+          <div class="mb-3">
+              <label class="label-font">Department</label>
+              <input type="text" class="form-control input-curve" formControlName="department" name="department" placeholder="Department" [ngClass]="{ 'is-invalid': isadminAddNewProductFormSubmitted && adminFormControls.department.errors}"/>
+              <div *ngIf="isadminAddNewProductFormSubmitted && adminFormControls.department.errors" class="invalid-feedback">
+                <div *ngIf="adminFormControls.department.errors.required">Department is required</div>
+              </div>
+          </div>
+  
+          <div class="mb-3">
+              <label class="label-font">Price</label>
+              <input type="text" class="form-control input-curve" formControlName="price" name="price" placeholder="Price" [ngClass]="{ 'is-invalid': isadminAddNewProductFormSubmitted && adminFormControls.price.errors}"/>
+              <div *ngIf="isadminAddNewProductFormSubmitted && adminFormControls.price.errors" class="invalid-feedback">
+                <div *ngIf="adminFormControls.price.errors.required">Price is required</div>
+              </div>
+          </div>
+  
+          <div class="mb-3">
+              <label class="label-font">Discount Price</label>
+              <input type="text" class="form-control input-curve" formControlName="discountprice" name="discountprice" placeholder="Discount Price" [ngClass]="{ 'is-invalid': isadminAddNewProductFormSubmitted && adminFormControls.discountprice.errors}"/>
+              <div *ngIf="isadminAddNewProductFormSubmitted && adminFormControls.discountprice.errors" class="invalid-feedback">
+                <div *ngIf="adminFormControls.discountprice.errors.required">Discount Price is required</div>
+                <div *ngIf="adminFormControls.discountprice.errors.mustMatch">Discount Price Should be less than Actual Price</div>
+              </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="label-font">Product Image</label>
+            <input type="text" class="form-control input-curve" formControlName="productimage" name="productimage" placeholder="Product Image" [ngClass]="{ 'is-invalid': isadminAddNewProductFormSubmitted && adminFormControls.productimage.errors}"/>
+            <div *ngIf="isadminAddNewProductFormSubmitted && adminFormControls.productimage.errors" class="invalid-feedback">
+              <div *ngIf="adminFormControls.productimage.errors.required">Product Image is required</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="label-font">Product Description</label>
+            <input type="text" class="form-control input-curve input-size" formControlName="productdescription" name="productdescription" placeholder="Product Description" [ngClass]="{ 'is-invalid': isadminAddNewProductFormSubmitted && adminFormControls.productdescription.errors}"/>
+            <div *ngIf="isadminAddNewProductFormSubmitted && adminFormControls.productdescription.errors" class="invalid-feedback">
+              <div *ngIf="adminFormControls.productdescription.errors.required">Product Description is required</div>
+              <div *ngIf="adminFormControls.productdescription.errors.minlength">Min Length is 20 chars</div>
+            </div>
+        </div>
+
+        <div>
+            <label class="label-font">Top Selling Product</label> &nbsp;
+            <input type="checkbox" class="checkbox" formControlName="checkbox" name="checkbox" />
+        </div>
+         
+     
+        
+
+
+
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+    </form>
+    </div>
+
+    </div>
+  </div>
+</div>
+
+</div>

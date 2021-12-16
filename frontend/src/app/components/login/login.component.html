@@ -1,0 +1,59 @@
+<div>
+  <div class="col-md-4 col-lg-9 col-xl-10" style="width: 45%; height:30%; float: left; margin-top:1px;">
+    <h4><b>Welcome to Shop 24x7</b></h4>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </div>
+  <div style="margin-left: 50%; height: 100px; width: 45%;">
+
+    <div class="container">
+
+      <form (ngSubmit)="onSubmit()" align="left">
+        <h3><b>Login</b></h3>
+
+        <div class="form">
+
+          <br>
+          <div class="form-group col-md-10">
+            Email
+            <input formControlName="login_email" type="text" class="form-control" id="login_email"
+              [ngClass]="{ 'is-invalid': isUserFormSubmitted && userFormControls.login_email.errors}" required>
+            <div *ngIf="isUserFormSubmitted && userFormControls.login_email.errors" class="invalid-feedback">
+              <div *ngIf="userFormControls.login_email.errors.required">Email is required </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-10">
+            Password
+            <input formControlName="login_password" type="password" class="form-control" id="login_password"
+              [ngClass]="{ 'is-invalid': isUserFormSubmitted && userFormControls.login_password.errors}" required />
+            <div *ngIf="isUserFormSubmitted && userFormControls.login_password.errors" class="invalid-feedback">
+              <div *ngIf="userFormControls.login_password.errors.required">Password is required </div>
+            </div>
+          </div>
+
+          <div align="center">
+            <button type="submit" name="login_submit" class="btn btn-primary" size="10">Log in</button><br><br>
+            <!-- <a routerLink="/forgotpassword">Forgot password?</a>  -->
+
+            <a routerLink="/register" align="center"><span>Create Account / Register?</span></a>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+
+</div>
+<div *ngIf="isUserFormSubmitted"> </div>
+<div class="checkout1">
+  <div>
+
+  </div>
+</div>
+<router-outlet></router-outlet>
