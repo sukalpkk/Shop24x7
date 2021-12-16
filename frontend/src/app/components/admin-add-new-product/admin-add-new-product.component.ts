@@ -6,6 +6,7 @@ import { AddNewProductService } from 'src/app/services/add-new-product.service';
 import { first } from 'rxjs/operators';
 import { AlertService } from 'src/app/services/alert.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin-add-new-product',
@@ -18,7 +19,7 @@ export class AdminAddNewProductComponent implements OnInit {
   public isadminAddNewProductFormSubmitted:boolean;
   public addProductDetail: any;
 
-  constructor(private formBuilder: FormBuilder, private addProductService:AddNewProductService,private alertService: AlertService,private router: Router,
+  constructor(private formBuilder: FormBuilder, private _httpClient:HttpClient,private addProductService:AddNewProductService,private alertService: AlertService,private router: Router,
     ) { 
     this.adminAddNewProductForm = {} as FormGroup;
     this.isadminAddNewProductFormSubmitted = false;
@@ -38,6 +39,7 @@ export class AdminAddNewProductComponent implements OnInit {
       discountprice:['',[Validators.required]],
       productimage:['',[Validators.required]],
       productdescription:['',[Validators.required,Validators.minLength(20)]],
+      checkbox:[false]
     },{
       validator: ReactiveMustMatch('price','discountprice')
     })
@@ -54,21 +56,18 @@ export class AdminAddNewProductComponent implements OnInit {
       return;
     }
 
-    if (this.adminAddNewProductForm.valid) {
-      console.log('form submitted');
-      this.addProductDetail = this.adminAddNewProductForm.getRawValue();
-      this.addProductService.addProduct(this.addProductDetail).pipe(first())
+  
+
+    this.addProductService.addProduct(this.adminAddNewProductForm.getRawValue()).pipe(first())
       .subscribe(
         data => {
-
-          this.alertService.success('Product Added Successfully', true);
-          
+          alert("Product Added");
+          this.router.navigate(['admin/products'])
         },
         error => {
           this.alertService.error(error);
         });
-    
-  }
+
 
   }
 }

@@ -17,11 +17,11 @@ export function MustMatch(controlName: string, matchingControlName: string) {
         }
 
         // set error on matchingControl if validation fails
-        if (control.value !== matchingControl.value) {
-            matchingControl.setErrors({ mustMatch: true });
+        if (control.value > matchingControl.value) {
+            matchingControl.setErrors(null);
             return null;
         } else {
-            matchingControl.setErrors(null);
+                       matchingControl.setErrors({ mustMatch: true });
             return null;
         }
     }
