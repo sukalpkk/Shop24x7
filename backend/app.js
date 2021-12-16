@@ -8,4 +8,7 @@ app.use('/users', UserController);
 const AuthController = require('./auth/AuthController');
 app.use('/api/auth', AuthController);
 
+var productsRouter = require('./routers/adminProduct_routes');
+app.use('/products', productsRouter);
+
 module.exports = app;
