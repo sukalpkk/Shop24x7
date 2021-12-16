@@ -11,7 +11,7 @@ export class AddNewProductService {
   constructor(private http: HttpClient) { }
 
   public addProduct(formdata: IAdminAddNewProduct): Observable<IAdminAddNewProduct>{
-    return this.http.post<IAdminAddNewProduct>('',formdata)
+    return this.http.post<IAdminAddNewProduct>('http://localhost:8080/products/save',formdata)
 
   }
 }
