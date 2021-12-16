@@ -9,10 +9,14 @@ const profileRoutes = require('./routers/profile_routes')
 const productRoute = require('./routers/adminProduct_routes')
 const cors = require('cors')
 
+const profileRoutes = require('./routers/profile_routes')
+const productRoute = require('./routers/adminProduct_routes')
+
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use('/product',productRoute)
+
 app.use(cors())
 
 
@@ -23,11 +27,6 @@ const AuthController = require('./auth/AuthController');
 app.use('/api/auth', AuthController);
 
 module.exports = app;
-
-
-
-
-
 
 app.get('/', (req, res) => {
     profileModel.find((err,result)=>{
@@ -52,6 +51,5 @@ app.post('/addProfile', (req, res) => {
 })
 
 app.listen(8080, function () {
-    console.log("server started in Port 3600")
+    console.log("server started in Port 8080")
 })
-
