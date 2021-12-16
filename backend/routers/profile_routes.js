@@ -1,7 +1,7 @@
 
 const express = require('express')
 const router = express.Router();
-const employeeModel = require('../models/profile_model.js');
+const employeeModel = require('../Profile/Profile.js');
 
 router.get('/', (req, res) => {
     employeeModel.find((err, result) => {
