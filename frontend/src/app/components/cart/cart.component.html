@@ -16,12 +16,12 @@
             <tr>
                 <td></td>
                 <td>
-                    <p>
+                    <p data-testid="cart-grand-total">
                         Grand Total {{ getTotal() | currency}}
                     </p>
                     <p routerLinkActive="active">
                         <a routerLink="/checkout">
-                            <button class="btn btn-warning">Checkout</button>
+                            <button data-testid="cart-button" class="btn btn-warning">Checkout</button>
                         </a>
                     </p>
                 </td>

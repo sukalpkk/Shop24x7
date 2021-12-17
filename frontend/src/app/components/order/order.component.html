@@ -4,7 +4,7 @@
     
         <table class="table">
             <tbody>
-                <tr *ngFor="let order of allOrders; let i = index">
+                <tr data-testid="order-row" *ngFor="let order of allOrders; let i = index">
                     <td>
                         <h3>#{{order.orderId}}</h3>
                         <p>{{order.user }}</p>
