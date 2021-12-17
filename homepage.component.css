@@ -1,0 +1,112 @@
+.checkout1{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: right;
+    flex:1 3;
+    height:20rem;
+    padding:.5rem;
+    margin:.5rem;
+}
+.container_new{
+    background: white;
+	color: black;
+	justify-content: right;
+	font-family: 'Montserrat', sans-serif;
+	height: 300px;
+    border-radius: 1.2rem;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25), 0 5px 10px
+		rgba(0, 0, 0, 0.25);
+	position: relative;
+	width: 80% !important;
+	font-size: 15;
+	margin-top:2rem;
+    
+}
+.col-lg{
+	color: black;
+	justify-content: left;
+	position: relative;
+	width: 30rem;
+	font-size: 15;
+    margin-top:5rem;
+    padding:10px;
+}
+.checkout1>div{
+    font-size:1.4rem;
+    margin:1rem;
+    flex:4;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: flex-start;
+    padding:1rem;
+}
+body {
+	background-color: lightsteelblue;
+	text-decoration: none;
+	justify-content: right;
+	height:100%;
+	font-size:15;
+    margin: 0px;
+    padding: 0px;
+}
+img{
+    height:200px;
+    width:280px;
+}
+.card{
+    width:300px;
+    padding:1px;
+    margin:8px;   
+}
+
+.card_new{
+    width:400px;
+    padding:1px;
+    margin:8px;
+    
+}
+
+div{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    flex-wrap:wrap;
+    list-style-type:none;
+    padding:0;
+    border-radius:1rem;
+    margin:0.5rem;
+    height:100%;
+}
+
+
+l > li{
+    padding:20px;
+}
+
+a:hover, a:visited{
+    text-decoration: none;
+}
+
+.active{
+    background-color: rgb(164, 164, 246);
+}
+
+
+.active > a{
+    color:yellow;
+    text-decoration: none;
+}
+
+.card-body .card-title::before{
+    content:"Name: ";
+    color:black;
+    font-weight: bold;
+}
+
+.card-body .text-muted1::before{
+    content:"Price: ";
+    color:black;
+    font-weight: bold;
+}
