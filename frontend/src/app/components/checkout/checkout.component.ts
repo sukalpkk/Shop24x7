@@ -100,7 +100,8 @@ export class CheckoutComponent implements OnInit {
       console.log("OOORRRDDERR")
 
       this.orderService.postOrders(order).subscribe(result=>{
-        alert(result);
+        alert("Order Placed Successfully");
+        console.log(order)
         this.cartService.clearCart();
         this.router.navigate(['/order']);
 
