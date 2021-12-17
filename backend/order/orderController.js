@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Order = require('../models/orderModel');
+var Order = require('../order/order');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

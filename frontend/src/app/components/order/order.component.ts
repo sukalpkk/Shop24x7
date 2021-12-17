@@ -21,15 +21,18 @@ export class OrderComponent implements OnInit {
 
   initializeCartItems() {
     let user = this.authenticationService.currentUser;
+    console.log(user);
     this.orderService.getOrders(user).subscribe(result=>{
       this.allOrders=result;
+      console.log(result)
+      console.log( this.allOrders)
 
     },(err)=>{console.log(err) })
 
   }
 
   public getDetails(index:number){
-    
+   
   }
 
 }
