@@ -39,7 +39,7 @@ export class CartComponent implements OnInit {
   }
 
   public removeCartItem(index:any):void{
-    this.cartItems.splice(index,1);
+    this.cartService.deleteItem(index);
   }
 
   public getTotal():any{

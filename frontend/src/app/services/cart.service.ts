@@ -36,6 +36,12 @@ export class CartService {
     
   }
 
+  deleteItem(index: number){
+    this.cartItems.splice(index ,1);
+    sessionStorage.setItem('cart', JSON.stringify(this.cartItems))
+
+  }
+
   getTotal() {
     return this.cartItems.reduce((acc, curr) => acc + +curr.price, 0)
   }
