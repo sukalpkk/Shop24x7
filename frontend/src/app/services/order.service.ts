@@ -17,7 +17,7 @@ export class OrderService {
   public getOrders(user:any):Observable<IOrders[]>{
 console.log("Test"+user);
 
-    return this.http.get<IOrders[]>(`http://localhost:8080/order/orders?email=sukalp.kokse001@gmail.com`)
+    return this.http.get<IOrders[]>(`http://localhost:8080/order/orders?email=${user}`)
   }
 
   public getAllOrders():Observable<IOrders[]>{
