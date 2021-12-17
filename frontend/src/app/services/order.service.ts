@@ -17,6 +17,11 @@ export class OrderService {
 
   public getOrders(user:any):Observable<IOrders[]>{
 
-    return this.http.post<IOrders[]>('http://localhost:8080/orders',user)
+    return this.http.get<IOrders[]>(`http://localhost:8080/orders?email=${user}`)
+  }
+
+  public getAllOrders():Observable<IOrders[]>{
+
+    return this.http.get<IOrders[]>('http://localhost:8080/orders')
   }
 }
