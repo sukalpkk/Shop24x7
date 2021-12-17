@@ -15,38 +15,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>1</td>
+
+      <tr *ngFor="let AllUserDetail of AllUserDetail">
+        <td>{{AllUserDetail.register_first_name}}</td>
+        <td>{{AllUserDetail.register_last_name}}</td>
+        <td>{{AllUserDetail.register_email}}</td>
+        <td>{{AllUserDetail.register_password}}</td>
         <td>
-            <button  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info">Edit</button>&nbsp;
-            <button class="btn btn-danger mx-3">Delete</button>
+          <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info" (click)="edit(AllUserDetail)">Edit</button>&nbsp;
+          <button class="btn btn-danger mx-3" (click)="delete(AllUserDetail)">Delete</button>
         </td>
-      </tr>
-      <tr>
-        
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        <td>@fat</td>
-        <td>
-          <button  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info">Edit</button>&nbsp;
-          <button class="btn btn-danger mx-3">Delete</button>
-      </td>
-      </tr>
-      <tr>
-       
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-        <td>@twitter</td>
-        <td>
-          <button  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info">Edit</button>&nbsp;
-          <button class="btn btn-danger mx-3">Delete</button>
-      </td>
       </tr>
     </tbody>
   </table>
@@ -59,70 +37,69 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+  
+          <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+             
+            <div class="mb-3">
+              <label class="label-font">Firstname</label>
+                <input formControlName="register_first_name" type="text" class="form-control input-curve" id="register_first_name" 
+                  [ngClass]="{ 'is-invalid': isUserFormSubmitted && userFormControls.register_first_name.errors}" required>
+                  
+                <div *ngIf="isUserFormSubmitted && userFormControls.register_first_name.errors" class="invalid-feedback">
+                  <div *ngIf="userFormControls.register_first_name.errors.required">First name is required and must be a
+                    valid name</div>
+                </div>
+            </div>
 
-         
-            <form [formGroup]="userForm" (ngSubmit)="onSubmit()" [mustMatch]="['register_password','register_confirm_password']">
+            <div class="mb-3">
+              <label class="label-font">LastName</label>
+                <input formControlName="register_last_name" type="text"  class="form-control input-curve" id="register_last_name" 
+                  [ngClass]="{ 'is-invalid': isUserFormSubmitted && userFormControls.register_last_name.errors}" required>
               
-              
-      
-               
+                  <div *ngIf="isUserFormSubmitted && userFormControls.register_last_name.errors" class="invalid-feedback">
+                  <div *ngIf="userFormControls.register_last_name.errors.required">Last name is required and must be a valid
+                    name</div>
+                </div>
+              </div>
+             
+    
               <div class="mb-3">
-                <label class="label-font">Firstname</label>
-                  <input formControlName="register_first_name" type="text" class="form-control input-curve" id="register_first_name" 
-                    [ngClass]="{ 'is-invalid': isUserFormSubmitted && userFormControls.register_first_name.errors}" required>
-                    
-                  <div *ngIf="isUserFormSubmitted && userFormControls.register_first_name.errors" class="invalid-feedback">
-                    <div *ngIf="userFormControls.register_first_name.errors.required">First name is required and must be a
-                      valid name</div>
+                <label class="label-font">Email</label>
+                <input formControlName="register_email" type="email" class="form-control input-curve" id="register_email"
+                  [ngClass]="{ 'is-invalid': isUserFormSubmitted && userFormControls.register_email.errors}" required>
+                <div *ngIf="isUserFormSubmitted && userFormControls.register_email.errors" class="invalid-feedback">
+                  <div *ngIf="userFormControls.register_email.errors.required">Email is required</div>
+                  <div *ngIf="userFormControls.register_email.errors.email">Enter valid email address, eg,. john@example.com
                   </div>
+                </div>
+              </div>
+    
+    
+          
+              <div class="mb-3">
+                <label class="label-font">Password</label>
+                <input formControlName="register_password" type="password" class="form-control input-curve" id="register_password"
+                  [ngClass]="{ 'is-invalid': isUserFormSubmitted && userFormControls.register_password.errors}" required />
+                <div *ngIf="isUserFormSubmitted && userFormControls.register_password.errors" class="invalid-feedback">
+                  <div *ngIf="userFormControls.register_password.errors.required">Password is required</div>
+                  <div *ngIf="userFormControls.register_password.errors.minlength">Password must be atleast 6 characters
+                  </div>
+                </div>
               </div>
 
-              <div class="mb-3">
-                <label class="label-font">LastName</label>
-                  <input formControlName="register_last_name" type="text"  class="form-control input-curve" id="register_last_name" 
-                    [ngClass]="{ 'is-invalid': isUserFormSubmitted && userFormControls.register_last_name.errors}" required>
-                
-                    <div *ngIf="isUserFormSubmitted && userFormControls.register_last_name.errors" class="invalid-feedback">
-                    <div *ngIf="userFormControls.register_last_name.errors.required">Last name is required and must be a valid
-                      name</div>
-                  </div>
-                </div>
-               
-      
-                <div class="mb-3">
-                  <label class="label-font">Email</label>
-                  <input formControlName="register_email" type="email" class="form-control input-curve" id="register_email"
-                    [ngClass]="{ 'is-invalid': isUserFormSubmitted && userFormControls.register_email.errors}" required>
-                  <div *ngIf="isUserFormSubmitted && userFormControls.register_email.errors" class="invalid-feedback">
-                    <div *ngIf="userFormControls.register_email.errors.required">Email is required</div>
-                    <div *ngIf="userFormControls.register_email.errors.email">Enter valid email address, eg,. john@example.com
-                    </div>
-                  </div>
-                </div>
-      
-      
-            
-                <div class="mb-3">
-                  <label class="label-font">Password</label>
-                  <input formControlName="register_password" type="password" class="form-control input-curve" id="register_password"
-                    [ngClass]="{ 'is-invalid': isUserFormSubmitted && userFormControls.register_password.errors}" required />
-                  <div *ngIf="isUserFormSubmitted && userFormControls.register_password.errors" class="invalid-feedback">
-                    <div *ngIf="userFormControls.register_password.errors.required">Password is required</div>
-                    <div *ngIf="userFormControls.register_password.errors.minlength">Password must be atleast 6 characters
-                    </div>
-                  </div>
-                </div>
+              <input type="hidden"  formControlName="id" />
 
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save changes</button>
-          </div>
-        </form>
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" (click)="update()">Save changes</button>
         </div>
-    
-        </div>
+      </form>
+
+      </div>
+  
       </div>
     </div>
+  </div>
     
 
 </div>
