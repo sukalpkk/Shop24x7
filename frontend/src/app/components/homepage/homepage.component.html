@@ -9,18 +9,18 @@
         <div class="col card" style="min-height: 200px;background-color: rgb(173, 166, 166);">
             <div class="content" align="center">
                 <div>
-                    <h4 routerLink="/categories">Category 1</h4>
+                    <h4 routerLink="/categories">Mobiles</h4>
                 </div>
             </div>
         </div>
         <div class="col card" style="min-height: 200px;background-color: rgb(173, 166, 166);">
             <div>
-                <h4 routerLink="/categories">Category 2</h4>
+                <h4 routerLink="/categories">Laptops</h4>
             </div>
         </div>
         <div class="col card" style="min-height: 200px;background-color: rgb(173, 166, 166);">
             <div>
-                <h4 routerLink="/categories">Category 3</h4>
+                <h4 routerLink="/categories">TV</h4>
             </div>
         </div>
     </div>
@@ -43,7 +43,7 @@
                         <div class="card-body">
                             <small class="text-muted1">{{productdetails.price |currency}}</small>&nbsp;
                         </div>
-                        <button class="btn btn-success" data-testid="product_page_add_to_cart">Add to cart</button>
+                        <button class="btn btn-success" data-testid="product_page_add_to_cart" (click)="addToCart(productdetails)">Add to cart</button>
                     </div>
                 </div>
             </div>
