@@ -16,5 +16,8 @@ app.use('/api/auth', AuthController);
 var productsRouter = require('./routers/adminProduct_routes');
 app.use('/products', productsRouter);
 
+const orderRouter = require('./order/orderController');
+app.use('/order', orderRouter);
+
 module.exports = app;
 
