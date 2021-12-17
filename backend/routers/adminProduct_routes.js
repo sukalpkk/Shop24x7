@@ -51,22 +51,44 @@ function(err, user) {
     });
 });
 
-// router.post('/update', function(req,res){
-//   var product = new Products(req.body);
-//   console.log(product)
-//   Products.findByIdAndUpdate(req.params.id,product,(err,product)=>{
-//     if(err) throw err;
-//     res.send(product);
-// },
-// function(err, user) {
-//   if (err) return res.status(500).send("There was a problem Updating Product.")
+
+router.post('/update', (req, res) => {
+  Products.findOneAndUpdate({ _id: req.body.id }, {
+      $set: { productname: req.body.productname,
+        department: req.body.department,
+        price:req.body.price,
+        discountprice:req.body.discountprice,
+        productimage:req.body.productimage,
+        productdescription:req.body.productdescription,
+        checkbox:req.body.checkbox}
+  },
+  function(err, user) {
+    if (err) return res.status(500).send("There was a problem Updating the Product.")
+      
+        res.send({
+          status:"success",
+          message: "Product Updated successfully"
+        })
+      });
+});
+
+
+router.post('/delete', (req, res) => {
+  Products.findOneAndDelete({ _id: req.body._id }, (err, result) => {
+          if (err) {
+              return console.log(err);
+          } else {
+              console.log('deleted the employee in  database')
+          }
+      },
+      function(err, user) {
+        if (err) return res.status(500).send("There was a problem Deleting the Product.")
+          
+            res.send({
+              status:"success",
+              message: "Product Deleted successfully"
+            })
+          });
+    });
     
-//       res.send({
-//         status:"success",
-//         message: "Product Updated successfully"
-//       })
-//     });
-
-// });
-
 module.exports= router;

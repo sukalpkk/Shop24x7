@@ -13,7 +13,7 @@
           </li>
           
           <li class="nav-item nav-text-font">
-            <a class="nav-link" href="/departments">Departments</a>
+            <a class="nav-link" href="/departments">Products</a>
           </li>
   
           <li class="nav-item nav-text-font">
@@ -25,10 +25,24 @@
           </li>
   
         </ul>
-  
+<!--   
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        </form>
+        </form> -->
+        <div *ngIf="!isAdmin && loginStatus" class="okaydown me-2">
+          <ul class="dropdown-menu">
+            <li ><a routerLink="/admin/orders" class="dropdown-item">Orders</a></li>
+            <li><a routerLink="/profile" class="dropdown-item">Profile</a></li>
+          </ul>  
+      </div>
+
+
+        <div class="text-end">
+          <button *ngIf="!loginStatus" type="button" routerLink="/register" class="btn btn-success me-2">Register</button> &nbsp;
+          <button *ngIf="!loginStatus" type="button" (click)="logout()" class="btn btn-success me-2">Logout</button>
+          <!-- <button *ngIf="loginStatus" type="button" (click)="logout()" class="btn btn-outline-danger">Logout</button> -->
+        </div>
+      
   
       <ul class="navbar-nav mr-auto mr-sm-2">
         

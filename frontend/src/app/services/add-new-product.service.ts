@@ -22,8 +22,12 @@ export class AddNewProductService {
 }
 
 public addProduct(data: any) {
-  console.log(data)
   return this.http.post('http://localhost:8080/products/addProduct', data)
+}
+
+public addUser(data: any){
+  console.log(data)
+  return this.http.post('http://localhost:8080/adminUser/addUser', data)
 }
 
 }
