@@ -17,6 +17,10 @@ import { DepartmentsComponent } from './components/departments/departments.compo
 import { PlaceorderComponent } from './components/placeorder/placeorder.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { CategoryComponent } from './components/category/category.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 
 const routes: Routes = [
   {path:"",redirectTo:"register",pathMatch:'full'},
@@ -24,24 +28,29 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   {path:"home",component:HomepageComponent},
   {path:"categories",component:CategoryComponent},
+  {path:'admin-login', component:AdminLoginComponent},
   {path:"profile", component: ProfileComponent},
-  {path:"product-details",component:ProductDetailsComponent},
+  {path:"product-details/:id",component:ProductDetailsComponent},
   {path:"search/:searchTerm",component:ProductDetailsComponent},
   {path:"departments",component:DepartmentsComponent},
   {path:"offers",component:OffersComponent},
   {path:"cart", component: CartComponent},
   {path:"checkout", component: CheckoutComponent},
   {path:"order", component: PlaceorderComponent},
+  {path:"admin", component: AdminComponent},
+  {path:"admin-home", component: AdminHomeComponent},
   {path:"admin/orders", component: AdminManageOrdersComponent},
   {path:'admin/addUser', component: AdminAddUserComponent},
   {path:'admin/editUser',component: AdminEditUserComponent},
   {path:'admin/add-new-product', component:AdminAddNewProductComponent},
   {path:'admin/products',component:AdminManageProductComponent},
+  {path:'logout',component:LogoutComponent},
   {path:"**",component:ErrorComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  // imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation:'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

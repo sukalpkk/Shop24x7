@@ -9,7 +9,7 @@
     padding:.5rem;
     margin:.5rem;
 }
-.container{
+/* .container{
     background: white;
 	color: black;
 	justify-content: right;
@@ -22,6 +22,15 @@
 	width: 30rem;
 	font-size: 15;
 	margin-top:7.5rem;
+} */
+.container{
+    background: white;
+	color: black;
+    justify-content: right;
+    position: relative;
+
+	font-size: 15;
+	
 }
 .col-lg{
 	color: black;
@@ -57,7 +66,7 @@ img{
 }
 .card{
     width:300px;
-    padding:1px;
+    padding:5px;
     margin:20px;
 }
 div{

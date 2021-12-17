@@ -1,4 +1,3 @@
-
 <div class="phone" align="left">
     <b>
         <h3> Smart Phone</h3>
@@ -6,62 +5,62 @@
 
 </div>
 <div>
-    <img class="image" src="https://cdn.akamai.steamstatic.com/steam/apps/996380/header.jpg?t=1551787740"
-        alt="Product Image" style="width:850px; height:250px;">
+    <img class="image" src="https://images-na.ssl-images-amazon.com/images/I/31Z2ee9oYQL.jpg"
+        class="d-block w-150 rounded-3" alt="Product Image" style="width:850px; height:250px;">
 </div>
 <div class="">
     <div class="col-md-3 col-lg-9 col-xl-2" style="width: 45%; height:30%; float: left; margin-top:1px;">
 
-        <h4>$ 100.00 &nbsp; <del>$199.99</del></h4>
-        <br>
-        <button class="btn btn-primary" data-testid="product_page_buynow" routerLink="/checkout" >Buy Now</button> &nbsp;
-        <button class="btn btn-success" data-testid="product_page_add_to_cart" routerLink="/cart">Add to cart</button>
+        <h4>$ 300.00 &nbsp; <del>$20.00</del></h4>&nbsp;
+        <br><br>
+
+        <button (click)="buyNow(product)" data-testid="product_page_buynow" class="btn btn-primary me-3">Buy
+            Now</button>
+        <br>&nbsp;&nbsp;
+        <button (click)="addToCart(product)" data-testid="product_page_add_to_cart" class="btn btn-success">Add to Cart</button>
 
     </div>
     <div style="margin-left: 0%; height: 175px; width: 31%;">
 
         <div class="col-md-3 col-lg-4 col-xl-12" style="width: 45%; height:30%; margin-top:0px;">
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore
-                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur.
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                laborum.
+                Packed with Innovative Features Including a Super Retina Display, TrueDepth Camera System, Face ID and
+                A11 Bionic Chip with Neural Engine
+
 
             </p>
         </div>
     </div>
 
 </div>
-<br>
-<br><br>
-<div align="left">
-    &nbsp;&nbsp;&nbsp; <h4 style="margin-right: 40px;">Recommended Products</h4>
-</div>
 
 
-<div class="">
-    <div class="card" *ngFor="let productdetails of productDetails">
-        <div class="content" align="center">
-
-            <div class="card-body">
-                <p class="card-title">{{productdetails.name}}</p>
-            </div>
-            <img class="card-img-top" [src]="productdetails.image" alt="Product Image"
-                data-testid="product_page_banner">
-
-
-            <div class="card-body">
-                <small class="text-muted1">{{productdetails.price |currency}}</small>&nbsp;
-
-            </div>
-
-        </div>
+    <div align="center">
+        <h2>Recommended Products</h2>
     </div>
+    <div class="">
+        <div class="card" *ngFor="let product of productList.slice(0, 6)">
+            <div class="content" align="center">
 
-</div>
+                <div class="card-body">
+                    <p class="card-title">{{product.productName}}</p>
+                </div>
+                <a [routerLink]="['/product-detail', product.id]" (click)="refresh"><img src="{{ product.image }}"
+                        alt="{{ product.productName }}" width="100%" height="225" style="object-fit: cover;"></a>
 
-<router-outlet></router-outlet>
+
+
+                <div class="card-body">
+                    <small class="text-muted1">{{product.price |currency}}</small>&nbsp;
+
+                </div>
+                <br>
+                <div class="card-footer text-muted">
+                    <!-- <button class="btn btn-primary" routerLink="/product-details">Product details</button> &nbsp; -->
+                    &nbsp;<button class="btn btn-primary" routerLink="/cart">Add to Cart</button>
+                </div>
+
+            </div>
+        </div>
+
+    

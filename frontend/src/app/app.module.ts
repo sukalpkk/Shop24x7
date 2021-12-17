@@ -32,6 +32,11 @@ import { AlertComponent } from './components/alert/alert.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from 'src/app/components/helpers/jwt.interceptor';
 import {  ErrorInterceptor } from 'src/app/components/helpers/error.interceptor';
+import { LogoutComponent } from './components/logout/logout.component';
+import { AuthGuard } from './components/helpers/auth.gaurd';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +62,11 @@ import {  ErrorInterceptor } from 'src/app/components/helpers/error.interceptor'
     PlaceorderComponent,
     HomepageComponent,
     CategoryComponent,
-    AlertComponent
+    AlertComponent,
+    LogoutComponent,
+    AdminLoginComponent,
+    AdminComponent,
+    AdminHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +78,7 @@ import {  ErrorInterceptor } from 'src/app/components/helpers/error.interceptor'
     NgbModule
   ],
   providers: [   { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },],
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
