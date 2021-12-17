@@ -74,7 +74,6 @@ export class AdminManageProductComponent implements OnInit {
     this.adminAddNewProductForm.controls['productimage'].setValue(row.productimage);
     this.adminAddNewProductForm.controls['productdescription'].setValue(row.productdescription);
     this.adminAddNewProductForm.controls['checkbox'].setValue(row.checkbox);
-    ;
   }
 
   public update(){

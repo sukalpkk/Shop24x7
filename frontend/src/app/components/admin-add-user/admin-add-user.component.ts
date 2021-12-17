@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AddNewProductService } from 'src/app/services/add-new-product.service';
+import { first } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-add-user',
@@ -11,7 +14,7 @@ export class AdminAddUserComponent implements OnInit {
   public adminAddNewUserForm:FormGroup;
   public isadminAddNewUserFormSubmitted:boolean;
 
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder,private addProductService:AddNewProductService,private router: Router) { 
     this.adminAddNewUserForm = {} as FormGroup;
     this.isadminAddNewUserFormSubmitted = false;
 
@@ -36,7 +39,23 @@ export class AdminAddUserComponent implements OnInit {
 
   public onSubmit():void{
     this.isadminAddNewUserFormSubmitted = true;
-    
+
+    if (this.adminAddNewUserForm.invalid) {
+      return;
+    }
+
+
+    this.addProductService.addUser(this.adminAddNewUserForm.getRawValue()).pipe(first())
+      .subscribe(
+        data => {
+          alert("User Added");
+          this.router.navigate(['admin/editUser'])
+        },
+        error => {
+          alert("User Not Added")
+        });
   }
+    
+  
 
 }
