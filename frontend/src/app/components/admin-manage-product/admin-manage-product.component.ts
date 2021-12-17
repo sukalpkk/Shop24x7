@@ -29,12 +29,16 @@ export class AdminManageProductComponent implements OnInit {
   public ngOnInit(): void {
     this.initialize();
     
+    this.getAllProducts();
+
+  }
+
+  public getAllProducts(){
     this.http.get<IAdminAddNewProduct[]>('http://localhost:8080/products/getproducts').subscribe(result=>{
       this.ProductDetail=result;
     }, error=>{
       console.log(error);
     })
-
   }
 
   public initialize(){
@@ -77,16 +81,27 @@ export class AdminManageProductComponent implements OnInit {
 
     this.UpdateProduct = this.adminAddNewProductForm.getRawValue();
     console.log(this.UpdateProduct)
-    this.http.put('http://localhost:8080/products/update/'+this.UpdateProduct.id, this.UpdateProduct).subscribe(result=>{
+    this.http.post('http://localhost:8080/products/update',this.UpdateProduct).subscribe(result=>{
 
-      alert('Product Updated Successfully');
+      alert("Product Updated Successfully");
+      let ref = document.getElementById('cancel')
+      ref?.click();
       this.adminAddNewProductForm.reset();
-      // console.log(result);
-      // this.router.navigate(['/admin/manage-products']);
+      this.getAllProducts();
 
     }, (error)=>{
       console.log(error);
     })
 
+  }
+
+  public delete(productdelete:any){
+
+    this.http.post('http://localhost:8080/products/delete',productdelete).subscribe(result=>{
+      alert("Product Deleted Successfully");
+      this.getAllProducts();
+    }, (error)=>{
+      console.log(error);
+    })
   }
 }

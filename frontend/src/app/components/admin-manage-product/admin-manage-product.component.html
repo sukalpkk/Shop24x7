@@ -36,7 +36,7 @@
         <td>{{product.discountprice}}</td>
         <td>
           <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info" (click)="edit(product)">Edit</button>&nbsp;
-          <button class="btn btn-danger mx-3">Delete</button>
+          <button class="btn btn-danger mx-3" (click)="delete(product)">Delete</button>
         </td>
       </tr>
     </tbody>
@@ -120,7 +120,7 @@
 
       
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary" (click)="update()">Save changes</button>
       </div>
     </form>
