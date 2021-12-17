@@ -33,23 +33,23 @@ export class CheckoutComponent implements OnInit {
   public ngOnInit(): void {
     this.initializeCheckoutForm();
     
-    this.user=this.authenticationService.currentUserValue;
+  //   // this.user=this.authenticationService.currentUserValue;
 
-    if (this.user != {} as IUser){
+  //   if (this.user != {} as IUser){
 
       
-      this.userService.getProfile("this.user.email").subscribe((result:IUser)=>{
+  //     this.userService.getProfile("this.user.email").subscribe((result:IUser)=>{
 
-      this.user=result;
+  //     this.user=result;
       
-    },error=>{
-      console.log(error);
+  //   },error=>{
+  //     console.log(error);
 
-    })
-  } else {
-    alert('Please log in.');
-    this.router.navigate(['/login']);
-  }
+  //   })
+  // } else {
+  //   alert('Please log in.');
+  //   this.router.navigate(['/login']);
+  // }
 
   }
 
@@ -72,17 +72,12 @@ export class CheckoutComponent implements OnInit {
   public onPlaceOrder():void{
     this.isCheckoutFormSubmitted = true;
     this.user = this.checkoutForm.getRawValue();
-    //this.profile.address = this.shippingAddressForm.getRawValue();
     this.isUserAddressEditable = false;
 
 
-    if(this.checkoutForm.valid){
-
-      this.userService.updateProfile(this.user).subscribe(result=>{
-        console.log(result)
-      }, error=>{
-        console.log(error)
-      })
+    if(this.checkoutForm.invalid){
+      return
+    }
 
     
       let items:ProductDetails[] = this.cartService.getItems();
@@ -93,7 +88,7 @@ export class CheckoutComponent implements OnInit {
       });
 
 
-      let order:any = {"userEmail":this.authenticationService.currentUser, "items":stringifiedCart, "total":total}
+      let order:any = {}
 
       sessionStorage.removeItem('cart');
     
@@ -115,4 +110,3 @@ export class CheckoutComponent implements OnInit {
     // })
   }
 
-}
