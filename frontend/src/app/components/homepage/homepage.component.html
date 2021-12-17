@@ -43,7 +43,7 @@
                         <div class="card-body">
                             <small class="text-muted1">{{productdetails.price |currency}}</small>&nbsp;
                         </div>
-                        <button class="btn btn-success" data-testid="product_page_add_to_cart">Add to cart</button>
+                        <button class="btn btn-success" data-testid="product_page_add_to_cart" (click)="addToCart(productdetails)">Add to cart</button>
                     </div>
                 </div>
             </div>

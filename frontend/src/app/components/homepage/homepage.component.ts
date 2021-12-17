@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { IProductResponse, ProductDetails } from 'src/app/models/productdetails.model';
 import { ProductDetailsService } from 'src/app/services/product-details.service';
+import { CartService } from 'src/app/services/cart.service';
+import { AlertService } from 'src/app/services/alert.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-homepage',
@@ -12,7 +15,7 @@ export class HomepageComponent implements OnInit {
   public productDetails: ProductDetails[];
   public products!: ProductDetails;
   public productDataLength: number;
-  constructor(private productService: ProductDetailsService) {
+  constructor(private productService: ProductDetailsService, private cartService: CartService, private alertService:AlertService) {
     this.productDetails = []
     this.productsDetail = {} as ProductDetails;
     this.productDataLength = 0;
@@ -28,5 +31,18 @@ export class HomepageComponent implements OnInit {
     this.productDetails = this.productService.TopSellingProducts()
   }
 
+  public addToCart(productdetails:ProductDetails){
+    // this.isadminAddNewProductFormSubmitted = true;
+
+    // if (this.adminAddNewProductForm.invalid) {
+    //   return;
+    // }
+
+  
+
+    this.cartService.addToCart(productdetails);
+    console.log(productdetails)
+    alert('Product added!');
+  }
 
 }
