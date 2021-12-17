@@ -4,6 +4,8 @@ import { IUser } from 'src/app/models/profile.model';
 import { UserService } from 'src/app/services/user.service';
 import { AlertService } from 'src/app/services/alert.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -17,7 +19,9 @@ export class ProfileComponent implements OnInit {
   public userAddress:any;
   public isUserAddressFormSubmitted:boolean;
   public isUserAddressEditable:boolean;
-  constructor(private formBuilder: FormBuilder, private userService: UserService,private alertService:AlertService, private authenticationService:AuthenticationService) { 
+  public subscription:any;
+
+  constructor(private formBuilder: FormBuilder,private router:Router, private userService: UserService,private alertService:AlertService, private authenticationService:AuthenticationService) { 
     this.userAddressForm = {} as FormGroup ;
     this.userAddress = {}
     this.isUserAddressFormSubmitted = false;
@@ -46,7 +50,7 @@ export class ProfileComponent implements OnInit {
 
   public initializeUserProfile(){
     const currentUser :any= this.authenticationService.currentUserValue ;
-    this.userService.getProfile(currentUser).subscribe(
+    this.subscription = this.userService.getProfile(currentUser).subscribe(
       (response:any) => {
         this.userProfile = response.data;
         console.log(this.userProfile)
@@ -54,8 +58,13 @@ export class ProfileComponent implements OnInit {
       },
       error => {
         this.alertService.error(error);
+        this.router.navigate(['/home']);
         
       });
+  }
+
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 
   public initializeUserAdressForm(){

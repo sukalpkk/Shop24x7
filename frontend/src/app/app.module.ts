@@ -25,13 +25,13 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { OffersComponent } from './components/offers/offers.component';
 import { DepartmentsComponent } from './components/departments/departments.component';
-import { PlaceorderComponent } from './components/placeorder/placeorder.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { CategoryComponent } from './components/category/category.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from 'src/app/components/helpers/jwt.interceptor';
 import {  ErrorInterceptor } from 'src/app/components/helpers/error.interceptor';
+import { OrderComponent } from './components/order/order.component';
 
 @NgModule({
   declarations: [
@@ -54,10 +54,10 @@ import {  ErrorInterceptor } from 'src/app/components/helpers/error.interceptor'
     ProductDetailsComponent,
     OffersComponent,
     DepartmentsComponent,
-    PlaceorderComponent,
     HomepageComponent,
     CategoryComponent,
-    AlertComponent
+    AlertComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,
