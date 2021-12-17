@@ -1,1 +1,14 @@
-
+[
+{ 
+  "name": "Samsung Galaxy S3",  
+  "image": "https://images-eu.ssl-images-amazon.com/images/I/41wcndTcMKL._SX300_SY300_QL70_FMwebp_.jpg"  
+},
+{ 
+  "name": "Samsung",  
+  "image": "https://images-na.ssl-images-amazon.com/images/I/712PBW8cGBL._SX679_.jpg"  
+},
+{ 
+  "name": "One Plus Note",  
+  "image": "https://images-na.ssl-images-amazon.com/images/I/61HjItaMQdS._SL1500_.jpg"  
+}
+]
