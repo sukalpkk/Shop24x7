@@ -18,4 +18,36 @@ export class AuthGuard implements CanActivate {
         this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
         return false;
     }
+
+      isLoggedIn(): boolean {
+        let status = false
+        if (localStorage.getItem('isLoggedIn') == 'true') {
+          status = true
+        } else {
+          status = false
+        }
+        return status
+      }
+    
+      isAdmin(): boolean{
+        if (localStorage.getItem('admin') == 'true'){
+          return true;
+        }else{
+          return false;
+        }
+      }
+    
+      logout() {
+        
+        localStorage.setItem('isLoggedIn', 'false');
+        localStorage.removeItem('firstName');
+        localStorage.removeItem('lastName');
+        localStorage.removeItem('id');
+        localStorage.removeItem('admin');
+    
+        window.location.replace('/logout');
+      }
+
+
+    
 }
