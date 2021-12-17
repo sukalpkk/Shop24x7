@@ -49,6 +49,19 @@ export class ProfileComponent implements OnInit {
   }
 
   public initializeUserProfile(){
+    this.userProfile= {
+      firstname:"John",
+      lastname:"Doe",
+      email:"johndoe@gmail.com",
+      profileImage:this.profileImg,
+      phone:"1234567890",
+      interests:"work",
+      address:{ streetAddress:"123 N St",
+        city:"",
+        state:"",
+        zipcode:""},
+      userrole:"user"
+    }
     const currentUser :any= this.authenticationService.currentUserValue ;
     this.subscription = this.userService.getProfile(currentUser).subscribe(
       (response:any) => {

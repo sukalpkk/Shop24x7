@@ -3,15 +3,24 @@
         <h1>Your Orders</h1>
     
         <table class="table">
+
+            <thead>
+                <tr>
+                  <th scope="col">Order ID</th>
+                  <th scope="col">Placed On</th>
+                  <th scope="col">Delivery Status</th>
+                </tr>
+              </thead>
             <tbody>
                 <tr data-testid="order-row" *ngFor="let order of allOrders; let i = index">
                     <td>
-                        <h3>#{{order.orderId}}</h3>
-                        <p>{{order.user }}</p>
+                        {{order._id}}
                     </td>
                     <td>
-                        <a (click)="getDetails(i)">Details</a> |
-                        
+                        {{order.orderPlacedOn}}
+                    </td>
+                    <td>
+                       In Progress
                     </td>
                 </tr>
             </tbody>
