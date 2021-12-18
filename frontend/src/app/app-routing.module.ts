@@ -14,13 +14,16 @@ import { AdminEditUserComponent } from './components/admin-edit-user/admin-edit-
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { OffersComponent } from './components/offers/offers.component';
 import { DepartmentsComponent } from './components/departments/departments.component';
-import { PlaceorderComponent } from './components/placeorder/placeorder.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { CategoryComponent } from './components/category/category.component';
+
+import { OrderComponent } from './components/order/order.component';
+
 import { LogoutComponent } from './components/logout/logout.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
+
 
 const routes: Routes = [
   {path:"",redirectTo:"register",pathMatch:'full'},
@@ -36,7 +39,7 @@ const routes: Routes = [
   {path:"offers",component:OffersComponent},
   {path:"cart", component: CartComponent},
   {path:"checkout", component: CheckoutComponent},
-  {path:"order", component: PlaceorderComponent},
+  {path:"order", component: OrderComponent},
   {path:"admin", component: AdminComponent},
   {path:"admin-home", component: AdminHomeComponent},
   {path:"admin/orders", component: AdminManageOrdersComponent},

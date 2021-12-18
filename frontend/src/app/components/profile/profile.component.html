@@ -3,28 +3,28 @@
     <br/>
 <section class="container">
     <div class="left">
-        <img class="profile-imgage" src='{{profileImg}}' alt="...">
+        <img data-testid="profile-image" class="profile-imgage" src='{{profileImg}}' alt="...">
         <div class="buttons">
-            <button class="btn btn-warning" (click)="deleteImage()">Delete Image</button>
-            <button class="btn btn-primary" (click)="uploadImage()">Upload</button>
+            <button data-testid="profile-delete-button" class="btn btn-warning" (click)="deleteImage()">Delete Image</button>
+            <button data-testid="profile-upload-button" class="btn btn-primary" (click)="uploadImage()">Upload</button>
         </div>
 
     </div>
     <div class="right">
         <div class="dataTable">
             <span class="row">
-                <span class="data" name="profile-first-name">
+                <span data-testid="profile-first-name" class="data" name="profile-first-name">
                     Fisrtname
                     <div>{{userProfile.firstname}}</div>
                 </span>
 
-                <span class="data" name="profile-last-name">
+                <span data-testid="profile-last-name" class="data" name="profile-last-name">
                     Lastname
                     <div>{{userProfile.lastname}}</div>
                 </span>
             </span>
 
-            <span class="data" name="profile-email">
+            <span data-testid="profile-email-name" class="data" name="profile-email">
                 Email
                 <div>{{userProfile.email}}</div>
             </span>
@@ -45,7 +45,7 @@
                     <div>{{userProfile.address}}</div>
                 </span>
 
-                <button class="btn btn-primary" (click)="onEditAddress()" *ngIf="!isUserAddressEditable">Edit</button>
+                <button data-testid="address-edit-button" class="btn btn-primary" (click)="onEditAddress()" *ngIf="!isUserAddressEditable">Edit</button>
 
             </span>
         </div>

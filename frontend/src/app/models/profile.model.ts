@@ -1,4 +1,4 @@
-export interface IProfile{
+export interface IUser{
     firstname:String;
     lastname:String;
     email:String;
@@ -11,9 +11,8 @@ export interface IProfile{
         state:String;
         zipcode:String;
     };
+    userrole:String;
+
 }
 
-export interface IProfileImage{
-    message:String;
-}
 

@@ -29,8 +29,8 @@ router.post('/profileDetails', function (req, res) {
             // create a token
           
             const profileInfo ={
-                firstname:data[0].firstname,
-                lastname:data[0].lastname,
+                firstname:data[0].firstName,
+                lastname:data[0].lastName,
                 email:data[0].email ,
                 phone:data[0].phone ,
                 address:data[0].address ,

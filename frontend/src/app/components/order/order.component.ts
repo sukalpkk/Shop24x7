@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { OrderService } from 'src/app/services/order.service';
-import { IOrders } from 'src/app/models/order.model';
 
 @Component({
-  selector: 'app-admin-manage-orders',
-  templateUrl: './admin-manage-orders.component.html',
-  styleUrls: ['./admin-manage-orders.component.css']
+  selector: 'app-order',
+  templateUrl: './order.component.html',
+  styleUrls: ['./order.component.css']
 })
-export class AdminManageOrdersComponent implements OnInit {
+export class OrderComponent implements OnInit {
 
+ 
   public allOrders:any[];
   constructor(private authenticationService:AuthenticationService, private orderService:OrderService) { 
     this.allOrders = [];
@@ -20,20 +20,19 @@ export class AdminManageOrdersComponent implements OnInit {
   }
 
   initializeCartItems() {
-    this.orderService.getAllOrders().subscribe((result:IOrders[])=>{
+    let user = this.authenticationService.currentUser;
+    console.log(user);
+    this.orderService.getOrders(user).subscribe(result=>{
       this.allOrders=result;
+      console.log(result)
+      console.log( this.allOrders)
 
     },(err)=>{console.log(err) })
 
   }
 
-  public deleteOrder(index:any):void{
-    this.allOrders.splice(index,1);
+  public getDetails(index:number){
+   
   }
-
-  public processOrder(index:any):void{
-    //process order
-  }
-
 
 }

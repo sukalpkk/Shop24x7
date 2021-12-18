@@ -1,0 +1,29 @@
+<div>
+    <section class="container">
+        <h1>Your Orders</h1>
+    
+        <table class="table">
+
+            <thead>
+                <tr>
+                  <th scope="col">Order ID</th>
+                  <th scope="col">Placed On</th>
+                  <th scope="col">Delivery Status</th>
+                </tr>
+              </thead>
+            <tbody>
+                <tr data-testid="order-row" *ngFor="let order of allOrders; let i = index">
+                    <td>
+                        {{order._id}}
+                    </td>
+                    <td>
+                        {{order.orderPlacedOn}}
+                    </td>
+                    <td>
+                       In Progress
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    </div>

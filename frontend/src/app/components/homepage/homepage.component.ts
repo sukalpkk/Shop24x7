@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { IProductResponse, ProductDetails } from 'src/app/models/productdetails.model';
 import { ProductDetailsService } from 'src/app/services/product-details.service';
+
 import { Icategory, Category } from 'src/app/models/category.model';
+
 import { CartService } from 'src/app/services/cart.service';
 import { AlertService } from 'src/app/services/alert.service';
 import { first } from 'rxjs/operators';
@@ -70,6 +72,5 @@ export class HomepageComponent implements OnInit {
     console.log(productdetails)
     alert('Product added!');
   }
-
 
 }

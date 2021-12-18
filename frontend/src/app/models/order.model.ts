@@ -1,4 +1,5 @@
 import { ICart } from './cart.model';
+import { ProductDetails } from './productdetails.model';
 
 export interface IOrders{
     _id:String;
@@ -6,6 +7,6 @@ export interface IOrders{
     orderPlacedOn:String;
     isDelivered:String;
     orderDeliveredOn:String;
-    cart:ICart[];
+    cart:ProductDetails[];
 }
 
