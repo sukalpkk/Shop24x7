@@ -267,6 +267,24 @@ public getPriceRanges():string[]{
   return["$5 - $50","$50 - $150","$150 - $500","$500 - $1500","$1500 - $5000"];
 }
 
+
+public getHomepageBanner():Observable<any>{
+  return this.http.get<any>('http://localhost:8080/api/v1/homepage/banner')
+}
+
+public getHomepageCategory():Observable<any>{
+  return this.http.get<any>('http://localhost:8080/api/v1/homepage/categories')
+}
+
+public getHomepageProducts():Observable<any>{
+  return this.http.get<any>('http://localhost:8080/api/v1/homepage/products')
+}
+
+
+
+
+
+
 public TopSellingProducts(): ProductDetails[] {
   return [{
     "id": 1,

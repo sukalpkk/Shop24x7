@@ -16,6 +16,8 @@ app.use('/api/auth', AuthController);
 var productsRouter = require('./routers/adminProduct_routes');
 app.use('/products', productsRouter);
 
+var homepageRouter = require('./routers/homepage_routes');
+app.use('/api/v1/homepage', homepageRouter);
 
 const orderRouter = require('./order/orderController');
 app.use('/order', orderRouter);
