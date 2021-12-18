@@ -97,7 +97,7 @@ export class AdminManageProductComponent implements OnInit {
   public delete(productdelete:any){
 
     this.http.post('http://localhost:8080/products/delete',productdelete).subscribe(result=>{
-      alert("Product Deleted Successfully");
+      //alert("Product Deleted Successfully");
       this.getAllProducts();
     }, (error)=>{
       console.log(error);
